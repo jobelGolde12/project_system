@@ -1,0 +1,13 @@
+
+:root{
+    --clr-primary: #fff;
+    --clr-secondary: #333;
+    --clr-in-hover: darkblue;
+    --bg-primary: #fff;
+    --bg-secondary: #333;
+    --circle-bg: #ccc;
+}
+.main_content{
+    width: 100vw;
+    height: 100vh;
+}
