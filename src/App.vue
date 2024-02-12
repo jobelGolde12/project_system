@@ -1,26 +1,30 @@
 <template>
   <div>
-    <SigninComponent @loginFunction="loginFunction"/>
+    <SigninComponent @loginFunction="loginFunction" v-if="!signin"/>
+    <IndexComponent v-if="signin"/>
   </div>
 </template>
 
 <script>
  import SigninComponent from './components/SigninComponent.vue';
+ import IndexComponent from './components/IndexComponent.vue';
+
 export default {
   name: 'App',
   data(){
     return{
       dataArray: [],
       username: '',
-      password: '',
-      getLoginData: null
+      ID: '',
+      getLoginData: null,
+      signin: false
     }
   },
   props: {
 
   },
   components:{
-    SigninComponent
+    SigninComponent,IndexComponent
   },
   methods: {
     fetchData(){
@@ -35,9 +39,6 @@ export default {
       .then(data =>{
         this.dataArray = data
       
-       for(let i = 0; i < data.length; i++){
-        console.log('id: ' + this.dataArray[i].id)
-       }
         this.dataArray.push({
     "id": 11,
     "name": "Jobel",
@@ -70,11 +71,12 @@ export default {
     loginFunction(getLoginData){
      this.getLoginData = getLoginData
       this.username = getLoginData[0]
-      this.password = getLoginData[0]
+      this.ID = getLoginData[1]
 
       for(let i = 0; i < this.dataArray.length; i++){
-        if(this.dataArray[i].username === this.username && this.dataArray[i].password === this.password){
-        console.log('Login Success')
+        if(this.dataArray[i].username === this.username && this.dataArray[i].id === +this.ID){
+        this.signin = true
+        break
       }else{
         console.log('Failed')
       }

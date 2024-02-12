@@ -29,13 +29,13 @@
 
 
             <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock"></i></span>
-            <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1" v-model="password">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-lock"></i></span>
+            <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1" v-model="ID">
             </div>
 
             <div class="input-group mb-3" v-if="signupIsClicked">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock"></i></span>
-            <input type="text" class="form-control" placeholder="Confirm password" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Confirm ID" aria-label="ID" aria-describedby="basic-addon1">
             </div>
 
              <div class="button-container">
@@ -62,7 +62,7 @@
           login: '',
           signupIsClicked: false,
           username: '',
-          password: ''
+          ID: ''
         }
     },
     methods:{
@@ -81,7 +81,7 @@
 
         },
         loginFunc(){
-            this.$emit('loginFunction',[this.username,this.password])
+            this.$emit('loginFunction',[this.username,this.ID])
         }
     }
 }
