@@ -15,25 +15,25 @@
                 <div class="content">
                 <h5 class="text-primary mt-3 ms-2 welcome-back" v-if="!signupIsClicked">Welcome Back!</h5>
                 <h5 class="text-primary mt-3 ms-2 signup" v-if="signupIsClicked">Signup</h5>
-                <form action="#" class="form container-fluid mt-4">
+                <form class="form container-fluid mt-4">
      
-                    <div class="input-group mb-3" v-if="signupIsClicked">
+                    <div class="input-group mb-2" v-if="signupIsClicked">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope"></i></span>
                     <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-2">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" v-model="username">
+            <input type="text" class="form-control" placeholder="username" aria-label="Username" aria-describedby="basic-addon1" v-model="username">
             </div>
 
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-2">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-lock"></i></span>
             <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1" v-model="ID">
             </div>
 
-            <div class="input-group mb-3" v-if="signupIsClicked">
+            <div class="input-group mb-2" v-if="signupIsClicked">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock"></i></span>
             <input type="text" class="form-control" placeholder="Confirm ID" aria-label="ID" aria-describedby="basic-addon1">
             </div>

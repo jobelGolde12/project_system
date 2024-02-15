@@ -1,6 +1,7 @@
 <template>
   <div>
-    <SigninComponent @loginFunction="loginFunction" v-if="!signin"/>
+    <div class="alert alert-warning ps-3 pe-3 d-none"><i class="bi bi-times"></i>Wrong Username or Password</div>
+    <SigninComponent @loginFunction="loginFunction" v-if="!signin" />
     <IndexComponent v-if="signin"/>
   </div>
 </template>
@@ -17,7 +18,8 @@ export default {
       username: '',
       ID: '',
       getLoginData: null,
-      signin: false
+      signin: false,
+      WrongIdOrPassword: false
     }
   },
   props: {
@@ -27,19 +29,15 @@ export default {
     SigninComponent,IndexComponent
   },
   methods: {
-    fetchData(){
+   async fetchData(){
       console.log('fetching data')
-      fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res =>{
-        if(res.ok){
-          console.log('fetching data success...')
-        }
-        return res.json()
-      })
-      .then(data =>{
-        this.dataArray = data
-      
-        this.dataArray.push({
+     
+      try{
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const data = await response.json()
+      this.dataArray = data
+      console.log('Fetching data successfully...')
+      this.dataArray.push({
     "id": 11,
     "name": "Jobel",
     "username": "Jobel v. Golde",
@@ -63,10 +61,11 @@ export default {
       "bs": "harness real-time e-markets"
     }
   })
-      })
-      .catch(error =>{
-        console.log('Error while fetching data ' + error)
-      })
+   
+}catch(error){
+        console.log('Error while fetching data: ' + error)
+      }
+
     },
     loginFunction(getLoginData){
      this.getLoginData = getLoginData
@@ -76,9 +75,10 @@ export default {
       for(let i = 0; i < this.dataArray.length; i++){
         if(this.dataArray[i].username === this.username && this.dataArray[i].id === +this.ID){
         this.signin = true
+        this.WrongIdOrPassword = false
         break
       }else{
-        console.log('Failed')
+        this.WrongIdOrPassword = true
       }
       }
       
@@ -90,6 +90,9 @@ export default {
   }
  
 }
+
 </script>
 
-
+<style>
+@import "./components/styles/global.css";
+</style>

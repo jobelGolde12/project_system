@@ -3,11 +3,44 @@
     --clr-primary: #fff;
     --clr-secondary: #333;
     --clr-in-hover: darkblue;
+    --clr-in-hover2: darkorange;
     --bg-primary: #fff;
     --bg-secondary: #333;
     --circle-bg: #ccc;
+    --fnt-natural: sans-serif;
+}
+*{
+    font-family: 'Georgia', sans-serif;
+}
+.fnt-natural{
+    font-family: sans-serif;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 .main_content{
     width: 100vw;
     height: 100vh;
+}
+.alert-warning{
+    position: absolute;
+    z-index: 20;
+    top: 1rem;
+    animation:animateAlert 1s ease forwards;
+    text-transform: lowercase;
+}
+@keyframes animateAlert{
+    from{
+        right: -100%;
+    }
+    to{
+        right: 1rem;
+    }
+}
+.sidenav-body .ul .li:hover{
+    background: #007bff;
+    color: var(--clr-primary);
+    border-radius: 7px;
 }
