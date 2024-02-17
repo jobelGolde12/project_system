@@ -31,12 +31,6 @@ export default {
   methods: {
    async fetchData(){
       console.log('fetching data')
-     
-      try{
-        const response = await fetch('https://jsonplaceholder.typicode.com/users')
-      const data = await response.json()
-      this.dataArray = data
-      console.log('Fetching data successfully...')
       this.dataArray.push({
     "id": 11,
     "name": "Jobel",
@@ -62,6 +56,12 @@ export default {
     }
   })
    
+      try{
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const data = await response.json()
+      this.dataArray = data
+      console.log('Fetching data successfully...')
+     
 }catch(error){
         console.log('Error while fetching data: ' + error)
       }
