@@ -61,6 +61,9 @@ export default {
       const data = await response.json()
       this.dataArray = data
       console.log('Fetching data successfully...')
+      const convertToString = JSON.stringify(this.dataArray)
+      localStorage.setItem('LocalData', convertToString)
+      
      
 }catch(error){
         console.log('Error while fetching data: ' + error)
@@ -68,12 +71,16 @@ export default {
 
     },
     loginFunction(getLoginData){
+      let getItem = localStorage.getItem('LocalData')
+      let parseIntoJson = JSON.parse(getItem)
+
+
      this.getLoginData = getLoginData
       this.username = getLoginData[0]
       this.ID = getLoginData[1]
 
       for(let i = 0; i < this.dataArray.length; i++){
-        if(this.dataArray[i].username === this.username && this.dataArray[i].id === +this.ID){
+        if(parseIntoJson[i].username === this.username && parseIntoJson[i].id === +this.ID){
         this.signin = true
         this.WrongIdOrPassword = false
         break

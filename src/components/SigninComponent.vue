@@ -98,9 +98,11 @@
         },
         loginFunc(){
             this.loadingSignin = true
+            this.$emit('loginFunction',[this.username,this.ID])
+            console.log('clicked')
             setTimeout(() =>{
                 this.loadingSignin = false
-            this.$emit('loginFunction',[this.username,this.ID])
+            
             },2000)
             
         },
