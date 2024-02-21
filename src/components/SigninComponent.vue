@@ -54,13 +54,7 @@
         </div>
     </div>
 
-    <div class="login-loading" v-if="loadingSignin">
-        <div class="bg-lightdark d-flex flex-column gap-2">
-            <div class="loading-message"><h3 class="text-light fnt-natural">Logging in...</h3></div>
-            <div class="spinner-border text-primary" role="status">
-            </div>
-        </div>    
-    </div>
+   
 
     
             <div class="load-system bg-light d-flex align-items-center fnt-natural justify-content-center flex-column" v-if="loadSystem">
@@ -69,6 +63,7 @@
                 </div>
 </template>
 <script>
+import userData from '../../data/userData.json'
  export default{
     name: 'SigninComponent',
     data(){
@@ -77,8 +72,8 @@
           signupIsClicked: false,
           username: '',
           ID: '',
-          loadingSignin: false,
-          loadSystem: true
+          loadSystem: true,
+          userDataContainer: userData
         }
     },
     methods:{
@@ -97,13 +92,15 @@
 
         },
         loginFunc(){
-            this.loadingSignin = true
-            this.$emit('loginFunction',[this.username,this.ID])
-            console.log('clicked')
-            setTimeout(() =>{
-                this.loadingSignin = false
+           
             
-            },2000)
+            this.$emit('loginFunction',[this.username,this.ID])
+               console.log(this.userDataContainer[0].username)
+
+            // for(let i = 0; i< this.userDataContainer; i++){
+            //     console.log(this.userDataContainer[0].usename)
+            // }
+           
             
         },
         handleLoadSystem(){
@@ -225,22 +222,7 @@ background-size: cover;
         opacity: 1;
     }
 }
-.login-loading{
-position: absolute;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-}
-.login-loading .bg-lightdark{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.5);
-    display: flex;
-justify-content: center;
-align-items: center;
-}
+
 .load-system{
     position:absolute;
     top: 0;
