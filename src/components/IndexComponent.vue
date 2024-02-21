@@ -13,31 +13,31 @@
         <div class="sidenav-body mt-3 d-flex flex-column">
             <div class="ul">
                 <div class="li">
-                    <div class="home bg-primary text-light  p-2 rounded mb-2"><i class="bi bi-house"></i> Home</div>
+                    <div class="home p-2 rounded mb-2"><i class="bi bi-house"></i> Home</div>
                 </div>
 
                 <div class="li" >
-                    <div class="home  p-2 rounded mb-2" ><i class="bi bi-person-lines-fill"></i> My reservation</div>
+                    <div class="my-reservation  p-2 rounded mb-2" ><i class="bi bi-person-lines-fill"></i> My reservation</div>
                 </div>
 
                 <div class="li">
-                    <div class="home  p-2 rounded mb-2"><i class="bi bi-person-circle"></i> Profile</div>
+                    <div class="profile  p-2 rounded mb-2"><i class="bi bi-person-circle"></i> Profile</div>
                 </div>
 
                 <div class="li">
-                    <div class="home  p-2 rounded mb-2"><i class="bi bi-segmented-nav"></i> Rooms</div>
+                    <div class="rooms  p-2 rounded mb-2"><i class="bi bi-segmented-nav"></i> Rooms</div>
                 </div>
 
                 <div class="li">
-                    <div class="home  p-2 rounded mb-2"><i class="bi bi-info-circle"></i> About website</div>
+                    <div class="about-website  p-2 rounded mb-2"><i class="bi bi-info-circle"></i> About website</div>
                 </div>
 
                 <div class="li">
-                    <div class="home  p-2 rounded mb-2"><i class="bi bi-cash"></i> Income</div>
+                    <div class="income  p-2 rounded mb-2"><i class="bi bi-cash"></i> Income</div>
                 </div>
 
                 <div class="li">
-                    <div class="home  p-2 rounded mb-2"><i class="bi bi-bell"></i> Notifications</div>
+                    <div class="notifications  p-2 rounded mb-2"><i class="bi bi-bell"></i> Notifications</div>
                 </div>
 
                     <div class="container mt-3">
@@ -84,35 +84,73 @@
 
        <div class="main-content bg-light d-flex flex-row">
 
-       <div class="rooms p-2 d-flex flex-column">
-      <div class="container">
-        <div class="room-holder rounded">
-           <div class="room-holder-footer">
-            <div class="room-name"><h5 class="text-light">Boggart</h5></div>
-            <div class="content text-light">Content of a room here</div>
-            <div class="ratings text-light">star here</div>
+       <div class="rooms p-2 d-flex flex-column gap-2">
+      <div class="room-container">
+        <div class="room-holder rounded ">
+           <div class="room-holder-footer ps-2 pe-2 pt-1 d-flex flex-row justify-content-between">
+            <div>
+                <div class="room-name bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-900">Couple room</h5></div>
+            <div class="content text-dark">A room design perfect for couple</div>
+            <div class="ratings text-dark">
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star text-warning me-1"></i>
+
+            </div>
+            </div>
+            <div class="room-info-btn me-3 mt-4">
+            <button class="btn btn-primary">Room info</button>
            </div>
+           </div>
+
+          
         </div>
       </div>
 
 
-      <div class="container">
+      <div class="room-container">
         <div class="room-holder rounded">
-           <div class="room-holder-footer">
-            <div class="room-name"><h5 class="text-light">Boggart</h5></div>
-            <div class="content text-light">Content of a room here</div>
-            <div class="ratings text-light">star here</div>
+            <div class="room-holder-footer ps-2 pe-2 pt-1 d-flex flex-row justify-content-between">
+            <div>
+                <div class="room-name  bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-bold">Couple room</h5></div>
+            <div class="content text-dark">A room design perfect for couple</div>
+            <div class="ratings text-dark">
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star text-warning me-1"></i>
+
+            </div>
+            </div>
+            <div class="room-info-btn me-3 mt-4">
+            <button class="btn btn-primary">Room info</button>
+           </div>
            </div>
         </div>
       </div>
+      <!-- :style="{ backgroundImage: 'url('+  roomData[0].rmImage + ')' }" -->
 
+      <div class="room-container">
+        <div class="room-holder rounded" >
+            <div class="room-holder-footer ps-2 pe-2 pt-1 d-flex flex-row justify-content-between">
+            <div>
+                <div class="room-name  bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-bold">Couple room</h5></div>
+            <div class="content text-dark">A room design perfect for couple</div>
+            <div class="ratings text-dark">
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star-fill text-warning me-1"></i>
+                <i class="bi bi-star text-warning me-1"></i>
 
-      <div class="container">
-        <div class="room-holder rounded">
-           <div class="room-holder-footer">
-            <div class="room-name"><h5 class="text-light">Boggart</h5></div>
-            <div class="content text-light">Content of a room here</div>
-            <div class="ratings text-light">star here</div>
+            </div>
+            </div>
+            <div class="room-info-btn me-3 mt-4">
+            <button class="btn btn-primary">Room info</button>
+           </div>
            </div>
         </div>
       </div>
@@ -121,8 +159,9 @@
 
        </div>
 
-       <div class="room-info bg-primary">
-
+       <div class="room-info"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quia minus veritatis velit blanditiis placeat earum perspiciatis, deleniti, dolor provident aliquam laboriosam numquam. Culpa, quam sequi perspiciatis cupiditate sit ducimus!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde laboriosam sunt exercitationem obcaecati dolores voluptas cumque, deserunt omnis blanditiis corporis quis voluptate similique a provident iure dicta, dolor voluptates repellendus? Veniam dolorum consequatur ipsam sit id ea eos repudiandae hic aspernatur quod culpa quisquam omnis earum eveniet voluptates, adipisci dolor minima nulla soluta tempore! Exercitationem aliquam rerum tenetur quaerat voluptate adipisci soluta at facere eveniet, voluptatem velit aliquid dolorum delectus omnis? Illo numquam quisquam at, fugiat quasi aperiam deserunt, laboriosam atque cum pariatur mollitia nostrum nemo maxime quaerat quos quibusdam maiores ut quae impedit dolorem. Odit dolorem ipsam eveniet porro!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi incidunt maiores, ipsa aut harum officia placeat modi, blanditiis maxime, iure delectus rem quis ea non similique beatae. Quaerat neque praesentium ex repudiandae obcaecati, vitae accusantium placeat laboriosam sunt eaque, animi sed ullam pariatur, tempora dolorum nisi iure. Eos, ipsam neque. Doloribus eos, provident dolorum asperiores voluptates accusantium ipsam pariatur atque error, molestiae commodi assumenda, ab distinctio obcaecati eum! Ratione non facere praesentium nihil, possimus a recusandae incidunt hic rerum est sapiente enim tenetur nostrum magni repellendus quidem id provident quaerat ab ex, repellat cupiditate ipsum aperiam. Officia accusantium tenetur suscipit?
        </div>
 
        </div>
@@ -131,30 +170,8 @@
         
     </div>
 </template>
+<script src="./scripts/IndexComponentScript.js"></script>
 
-<script>
-export default{
-    name: 'IndexComponent',
-    data(){
-        return{
-            changeTheme: false,
-            albumData: [],
-            hoverSidenavListBool: false,
-            currentUsername: 'Jobel v. Golde',
-            activeUser: 1500,
-            availableRooms: 500
-        }
-    },
-    methods: {
-        changeThemeFunc(){
-         this.changeTheme = !this.changeTheme
-        },
-        hoverSidenavList(){
-         this.hoverSidenavListBool = !this.hoverSidenavListBool
-        }
-    }
-}
-</script>
 <style scoped>
 .main-container{
  position: absolute;
@@ -180,7 +197,7 @@ export default{
 .body .main-content{
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 100%;
 }
 .j-logo{
     width: 30px;
@@ -218,18 +235,24 @@ export default{
 .main-content .room-info{
     top: 0;
     position: relative;
-    width: 35%;
+    width: 30%;
     height: 100%;
-    background: #ccc;
-    overflow-y: auto;
+    overflow-y: scroll;
+    background: #f1f1f1;
+    padding: 1rem;
 }
 .room-info-text{
 margin-right: 15rem;
 }
+.rooms .room-container{
+    position: relative;
+    width: 100%;
+    min-height: 60%;
+    margin-bottom: 2rem;
+}
 
-
-.rooms .container .room-holder{
-    background: url('../assets/hotel-room1.jpg');
+.rooms .room-container .room-holder{
+     background: url('../assets/hotel-room1.jpg'); 
     background-size: cover;
     background-position: center;
     width: 95%;
@@ -238,16 +261,25 @@ margin-right: 15rem;
 }
 .room-holder .room-holder-footer{
   position: relative;
-  transform: translateY(350%);
+  transform: translateY(325%);
   width: 100%;
   height: 20%;
-  background: #000;
+  background: rgba(250,250,250,.5);
+  border-radius: 10px;
   
+}
+.room-name h5{
+    text-shadow: #333 solid black;
 }
 .available-rooms{
     background-color: #4158D0;
 background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 
+}
+.room-holder-footer h5{
+    font-size: 1.5rem;
+    padding-bottom:0;
+    margin-bottom: 0;
 }
 .all-users{
     background-image: linear-gradient( 109.6deg,  rgba(61,131,97,1) 11.2%, rgba(28,103,88,1) 91.1% );
@@ -257,4 +289,5 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 .active-users{
     background-image: radial-gradient( circle 897px at 9% 80.3%,  rgba(55,60,245,1) 0%, rgba(234,161,15,0.90) 100.2% );
 }
+
 </style>

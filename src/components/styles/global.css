@@ -8,6 +8,7 @@
     --bg-secondary: #333;
     --circle-bg: #ccc;
     --fnt-natural: sans-serif;
+    --bs-bg-primary: #007bff;
 }
 *{
     font-family: 'Georgia', sans-serif;
@@ -40,7 +41,11 @@ body{
     }
 }
 .sidenav-body .ul .li:hover{
-    background: #007bff;
+    background: var(--bs-bg-primary);
     color: var(--clr-primary);
     border-radius: 7px;
+}
+.sidenav-body .ul .li .home{
+    background: var(--bs-bg-primary);
+    color: #fff;
 }
