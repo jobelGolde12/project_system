@@ -24,7 +24,7 @@ export default {
     return{
       dataArray: [],
       username: '',
-      ID: '',
+      password: '',
       getLoginData: null,
       signin: false,
       WrongIdOrPassword: false,
@@ -38,7 +38,7 @@ export default {
     SigninComponent,IndexComponent
   },
   methods: {
-   async fetchData(){
+    fetchData(){
       console.log('fetching data')
    
     this.dataArray = userData
@@ -47,18 +47,18 @@ export default {
     loginFunction(getLoginData){
      this.getLoginData = getLoginData
       this.username = getLoginData[0]
-      this.ID = getLoginData[1]
+      this.password = getLoginData[1]
 
        
 
       
       for(let i = 0; i < this.dataArray.length; i++){
-        if(this.dataArray[i].username === this.username && this.dataArray[i].id === +this.ID){
+        if(this.dataArray[i].username === this.username && this.dataArray[i].password === this.password){
         this.WrongIdOrPassword = false
         this.loadingSignin = true
             setTimeout(() =>{
                 this.loadingSignin = false
-        this.signin = true
+                this.signin = true
                 
             },2000)
         break

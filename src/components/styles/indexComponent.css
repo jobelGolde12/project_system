@@ -1,0 +1,117 @@
+.main-container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+   }
+   .sidenav{
+       position: relative;
+       width: 20%;
+       height: 100%;
+       top: -4%;
+   }
+   .body{
+       position: relative;
+       height: 100%;
+       flex: 1;
+   
+   }
+   .body .header{
+       position: relative;
+       height: 30%;
+       width: 100%;
+   }
+   .body .main-content{
+       position: relative;
+       width: 100%;
+       height: 100%;
+   }
+   .j-logo{
+       width: 30px;
+       height: 30px;
+       border-radius: 50%;
+       justify-content: center;
+       
+   }
+   .header > .right-top-icons{
+       position: relative;
+       float: right;
+   }
+   .right-top-icons i:hover{
+       position: relative;
+       color: var(--clr-in-hover2);
+       font-weight: 900;
+       cursor: pointer;
+   }
+   .user-profile{
+       width: 30px;
+       height: 30px;
+       border-radius: 50%;
+       background: url('');
+       background-position: center;
+       align-items: center;
+   }
+   
+   .main-content .rooms{
+       position: relative;
+       width:65%;
+       height:100%;
+       left: 0;
+       overflow-y: auto;
+   }
+   .main-content .room-info{
+       top: 0;
+       position: relative;
+       width: 30%;
+       height: 100%;
+       overflow-y: scroll;
+       background: #f1f1f1;
+       padding: 1rem;
+   }
+   .room-info-text{
+   margin-right: 15rem;
+   }
+   .rooms .room-container{
+       position: relative;
+       width: 100%;
+       min-height: 60%;
+       margin-bottom: 2rem;
+   }
+   
+   .rooms .room-container .room-holder{
+        background: url('../../assets/hotel-room1.jpg'); 
+       background-size: cover;
+       background-position: center;
+       width: 95%;
+       min-height: 100%;
+       position: absolute;
+   }
+   .room-holder .room-holder-footer{
+     position: relative;
+     transform: translateY(175%);
+     width: 100%;
+     height: 20%;
+     background: rgba(250,250,250,.5);
+     border-radius: 10px;
+     
+   }
+   .room-name h5{
+       text-shadow: #333 solid black;
+   }
+   .available-rooms{
+       background-color: #4158D0;
+   background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+   
+   }
+   .room-holder-footer h5{
+       font-size: 1.5rem;
+       padding-bottom:0;
+       margin-bottom: 0;
+   }
+   .all-users{
+       background-image: linear-gradient( 109.6deg,  rgba(61,131,97,1) 11.2%, rgba(28,103,88,1) 91.1% );
+   
+   
+   }
+   .active-users{
+       background-image: radial-gradient( circle 897px at 9% 80.3%,  rgba(55,60,245,1) 0%, rgba(234,161,15,0.90) 100.2% );
+   }

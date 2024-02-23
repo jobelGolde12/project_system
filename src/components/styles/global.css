@@ -52,14 +52,11 @@ body{
    
 }
 .sidenav-body .ul .li:hover{
-    background: var(--bs-bg-primary);
+    background: rgba(0, 0, 0, .5);
     color: var(--clr-primary);
     border-radius: 7px;
 }
-.sidenav-body .ul .li .home{
-    background: var(--bs-bg-primary);
-    color: #fff;
-}
+
 .login-loading{
     position: absolute;
     top: 0;

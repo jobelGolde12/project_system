@@ -1,9 +1,11 @@
 [
     {
       "id": 1,
+      "type": "user",
       "name": "Leanne Graham",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "password": "BretGraham123",
       "address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
@@ -24,9 +26,11 @@
     },
     {
       "id": 2,
+      "type": "user",
       "name": "Ervin Howell",
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
+      "password": "Erwin123",
       "address": {
         "street": "Victor Plains",
         "suite": "Suite 879",
@@ -47,9 +51,11 @@
     },
     {
       "id": 3,
+      "type": "user",
       "name": "Clementine Bauch",
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
+      "password": "Bauch123",
       "address": {
         "street": "Douglas Extension",
         "suite": "Suite 847",
@@ -70,9 +76,11 @@
     },
     {
       "id": 4,
+      "type": "user",
       "name": "Patricia Lebsack",
       "username": "Karianne",
       "email": "Julianne.OConner@kory.org",
+      "password": "Lebsack123",
       "address": {
         "street": "Hoeger Mall",
         "suite": "Apt. 692",
@@ -93,9 +101,11 @@
     },
     {
       "id": 5,
+      "type": "user",
       "name": "Chelsey Dietrich",
       "username": "Kamren",
       "email": "Lucio_Hettinger@annie.ca",
+      "password": "Karmen123",
       "address": {
         "street": "Skiles Walks",
         "suite": "Suite 351",
@@ -116,9 +126,11 @@
     },
     {
       "id": 6,
+      "type": "user",
       "name": "Mrs. Dennis Schulist",
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
+      "password": "Dennis123",
       "address": {
         "street": "Norberto Crossing",
         "suite": "Apt. 950",
@@ -139,9 +151,11 @@
     },
     {
       "id": 7,
+      "type": "user",
       "name": "Kurtis Weissnat",
       "username": "Elwyn.Skiles",
       "email": "Telly.Hoeger@billy.biz",
+      "password": "Kurtis123",
       "address": {
         "street": "Rex Trail",
         "suite": "Suite 280",
@@ -162,9 +176,11 @@
     },
     {
       "id": 8,
+      "type": "user",
       "name": "Nicholas Runolfsdottir V",
       "username": "Maxime_Nienow",
       "email": "Sherwood@rosamond.me",
+      "password": "Nicholas123",
       "address": {
         "street": "Ellsworth Summit",
         "suite": "Suite 729",
@@ -185,9 +201,11 @@
     },
     {
       "id": 9,
+      "type": "user",
       "name": "Glenna Reichert",
       "username": "Delphine",
       "email": "Chaim_McDermott@dana.io",
+      "password": "Delphine123",
       "address": {
         "street": "Dayna Park",
         "suite": "Suite 449",
@@ -208,9 +226,11 @@
     },
     {
       "id": 10,
+      "type": "user",
       "name": "Clementina DuBuque",
       "username": "Moriah.Stanton",
       "email": "Rey.Padberg@karina.biz",
+      "password": "Clementina123",
       "address": {
         "street": "Kattie Turnpike",
         "suite": "Suite 198",
@@ -232,14 +252,15 @@
 
     {
       "id": 11,
-      "name": "Jobel",
+      "type": "admin",
+      "name": "Jobel v. Golde",
       "username": "Jobel v. Golde",
       "email": "jobelgolde43@gmail.com",
       "password": "nonong123",
       "address": {
-        "street": "Kulas Light",
+        "street": "Purok 4",
         "suite": "Apt. 556",
-        "city": "Gwenborough",
+        "city": "Sorsogon",
         "zipcode": "92998-3874",
         "geo": {
           "lat": "-37.3159",

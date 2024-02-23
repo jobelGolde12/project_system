@@ -30,12 +30,12 @@
 
             <div class="input-group mb-2">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-lock"></i></span>
-            <input type="text" class="form-control" placeholder="ID" aria-label="ID" aria-describedby="basic-addon1" v-model="ID">
+            <input type="text" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1" v-model="password">
             </div>
 
             <div class="input-group mb-2" v-if="signupIsClicked">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock"></i></span>
-            <input type="text" class="form-control" placeholder="Confirm ID" aria-label="ID" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Confirm password" aria-label="password" aria-describedby="basic-addon1">
             </div>
 
              <div class="button-container">
@@ -48,6 +48,11 @@
                    <p v-if="signupIsClicked"> Already have an account? | <a href="#" @click="signinFunc">Login</a> </p>
                 </div>
              </div>
+
+             
+
+
+
             </div>
                 </div>
             </div>
@@ -58,7 +63,7 @@
 
     
             <div class="load-system bg-light d-flex align-items-center fnt-natural justify-content-center flex-column" v-if="loadSystem">
-               <div> <h1>Hotel Management System</h1></div>
+               <div> <h1>Hotel Reservation System</h1></div>
                <div class="loading"> <div class="loader"></div></div>
                 </div>
 </template>
@@ -71,7 +76,7 @@ import userData from '../../data/userData.json'
           login: '',
           signupIsClicked: false,
           username: '',
-          ID: '',
+          password: '',
           loadSystem: true,
           userDataContainer: userData
         }
@@ -88,13 +93,12 @@ import userData from '../../data/userData.json'
             document.querySelector('.signin-card').style.height = '60%'
             document.querySelector('.image').style.height = '90%'
 
-           
 
         },
         loginFunc(){
            
             
-            this.$emit('loginFunction',[this.username,this.ID])
+            this.$emit('loginFunction',[this.username,this.password])
                console.log(this.userDataContainer[0].username)
 
             // for(let i = 0; i< this.userDataContainer; i++){
