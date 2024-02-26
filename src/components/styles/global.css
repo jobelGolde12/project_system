@@ -27,7 +27,7 @@ body{
 }
 .wrong-username-or-password{
     position: absolute;
-    z-index: 20;
+    z-index: 999;
     top: 1rem;
     animation:animateAlert 4s ease forwards;
     text-transform: lowercase;

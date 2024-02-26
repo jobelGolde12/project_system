@@ -1,19 +1,20 @@
+
 [
     {
       "id": 1,
       "type": "user",
-      "name": "Leanne Graham",
-      "username": "Bret",
-      "email": "Sincere@april.biz",
-      "password": "BretGraham123",
+      "name": "Alder B. Clemente",
+      "username": "Alder",
+      "email": "alder123@gmail.com",
+      "password": "alder123",
       "address": {
-        "street": "Kulas Light",
+        "street": "Roxas Boulevard",
         "suite": "Apt. 556",
-        "city": "Gwenborough",
-        "zipcode": "92998-3874",
+        "city": "Manila",
+        "zipcode": "1000",
         "geo": {
-          "lat": "-37.3159",
-          "lng": "81.1496"
+          "lat": "14.5709",
+          "lng": "120.9842"
         }
       },
       "phone": "1-770-736-8031 x56442",
@@ -27,18 +28,18 @@
     {
       "id": 2,
       "type": "user",
-      "name": "Ervin Howell",
-      "username": "Antonette",
+      "name": "Boggart valdez",
+      "username": "Boggart",
       "email": "Shanna@melissa.tv",
-      "password": "Erwin123",
+      "password": "boggart123",
       "address": {
-        "street": "Victor Plains",
+        "street": "Araneta Street",
         "suite": "Suite 879",
-        "city": "Wisokyburgh",
-        "zipcode": "90566-7771",
+        "city": "Quezon City",
+        "zipcode": "1100",
         "geo": {
-          "lat": "-43.9509",
-          "lng": "-34.4618"
+          "lat": "14.6760",
+          "lng": "121.0437"
         }
       },
       "phone": "010-692-6593 x09125",
@@ -57,13 +58,13 @@
       "email": "Nathan@yesenia.net",
       "password": "Bauch123",
       "address": {
-        "street": "Douglas Extension",
+        "street": "J.P. Laurel Avenue",
         "suite": "Suite 847",
-        "city": "McKenziehaven",
-        "zipcode": "59590-4157",
+        "city": "Davao City",
+        "zipcode": "8000",
         "geo": {
-          "lat": "-68.6102",
-          "lng": "-47.0653"
+          "lat": "7.0642",
+          "lng": "125.6076"
         }
       },
       "phone": "1-463-123-4447",
@@ -82,13 +83,13 @@
       "email": "Julianne.OConner@kory.org",
       "password": "Lebsack123",
       "address": {
-        "street": "Hoeger Mall",
+        "street": "Bonifacio Street",
         "suite": "Apt. 692",
-        "city": "South Elvis",
-        "zipcode": "53919-4257",
+        "city": "Cebu City",
+        "zipcode": "6000",
         "geo": {
-          "lat": "29.4572",
-          "lng": "-164.2990"
+          "lat": "10.3157",
+          "lng": "123.8854"
         }
       },
       "phone": "493-170-9623 x156",
@@ -107,13 +108,13 @@
       "email": "Lucio_Hettinger@annie.ca",
       "password": "Karmen123",
       "address": {
-        "street": "Skiles Walks",
+        "street": "Lacson Street",
         "suite": "Suite 351",
-        "city": "Roscoeview",
-        "zipcode": "33263",
+        "city": "Bacolod City",
+        "zipcode": "6100",
         "geo": {
-          "lat": "-31.8129",
-          "lng": "62.5342"
+          "lat": "10.6782",
+          "lng": "122.9543"
         }
       },
       "phone": "(254)954-1289",
@@ -132,13 +133,13 @@
       "email": "Karley_Dach@jasper.info",
       "password": "Dennis123",
       "address": {
-        "street": "Norberto Crossing",
+        "street": "Panganiban Drive",
         "suite": "Apt. 950",
-        "city": "South Christy",
-        "zipcode": "23505-1337",
+        "city": "Naga City",
+        "zipcode": "4400",
         "geo": {
-          "lat": "-71.4197",
-          "lng": "71.7478"
+          "lat": "13.6275",
+          "lng": "123.1945"
         }
       },
       "phone": "1-477-935-8478 x6430",
@@ -157,13 +158,13 @@
       "email": "Telly.Hoeger@billy.biz",
       "password": "Kurtis123",
       "address": {
-        "street": "Rex Trail",
+        "street": "Roxas Avenue",
         "suite": "Suite 280",
-        "city": "Howemouth",
-        "zipcode": "58804-1099",
+        "city": "Baguio City",
+        "zipcode": "2600",
         "geo": {
-          "lat": "24.8918",
-          "lng": "21.8984"
+          "lat": "16.4023",
+          "lng": "120.5960"
         }
       },
       "phone": "210.067.6132",
@@ -182,21 +183,21 @@
       "email": "Sherwood@rosamond.me",
       "password": "Nicholas123",
       "address": {
-        "street": "Ellsworth Summit",
+        "street": "T. Claudio Street",
         "suite": "Suite 729",
-        "city": "Aliyaview",
-        "zipcode": "45169",
+        "city": "Batangas City",
+        "zipcode": "4200",
         "geo": {
-          "lat": "-14.3990",
-          "lng": "-120.7677"
+          "lat": "13.7565",
+          "lng": "120.5960"
         }
       },
-      "phone": "586.493.6943 x140",
-      "website": "jacynthe.com",
+      "phone": "210.067.6132",
+      "website": "elvis.io",
       "company": {
-        "name": "Abernathy Group",
-        "catchPhrase": "Implemented secondary concept",
-        "bs": "e-enable extensible e-tailers"
+        "name": "Johns Group",
+        "catchPhrase": "Configurable multimedia task-force",
+        "bs": "generate enterprise e-tailers"
       }
     },
     {
@@ -207,13 +208,13 @@
       "email": "Chaim_McDermott@dana.io",
       "password": "Delphine123",
       "address": {
-        "street": "Dayna Park",
+        "street": "Alunan Avenue",
         "suite": "Suite 449",
-        "city": "Bartholomebury",
-        "zipcode": "76495-3109",
+        "city": "Tacloban City",
+        "zipcode": "6500",
         "geo": {
-          "lat": "24.6463",
-          "lng": "-168.8889"
+          "lat": "11.2455",
+          "lng": "125.0032"
         }
       },
       "phone": "(775)976-6794 x41206",
@@ -232,13 +233,13 @@
       "email": "Rey.Padberg@karina.biz",
       "password": "Clementina123",
       "address": {
-        "street": "Kattie Turnpike",
+        "street": "Rizal Avenue",
         "suite": "Suite 198",
-        "city": "Lebsackbury",
-        "zipcode": "31428-2261",
+        "city": "Puerto Princesa City",
+        "zipcode": "5300",
         "geo": {
-          "lat": "-38.2386",
-          "lng": "57.2232"
+          "lat": "9.7392",
+          "lng": "118.7353"
         }
       },
       "phone": "024-648-3804",
@@ -249,7 +250,6 @@
         "bs": "target end-to-end models"
       }
     },
-
     {
       "id": 11,
       "type": "admin",
@@ -258,13 +258,13 @@
       "email": "jobelgolde43@gmail.com",
       "password": "nonong123",
       "address": {
-        "street": "Purok 4",
+        "street": "P. Gomez Street",
         "suite": "Apt. 556",
-        "city": "Sorsogon",
-        "zipcode": "92998-3874",
+        "city": "Legazpi City",
+        "zipcode": "4500",
         "geo": {
-          "lat": "-37.3159",
-          "lng": "81.1496"
+          "lat": "13.1395",
+          "lng": "123.7435"
         }
       },
       "phone": "1-770-736-8031 x56442",
@@ -274,5 +274,106 @@
         "catchPhrase": "Multi-layered client-server neural-net",
         "bs": "harness real-time e-markets"
       }
+    },
+    {
+      "id": 12,
+      "type": "user",
+      "name": "Jasper Lopez",
+      "username": "JLopez",
+      "email": "jasper.lopez@example.com",
+      "password": "Jasper123",
+      "address": {
+        "street": "Burgos Street",
+        "suite": "Unit 302",
+        "city": "Cagayan de Oro City",
+        "zipcode": "9000",
+        "geo": {
+          "lat": "8.4697",
+          "lng": "124.7226"
+        }
+      },
+      "phone": "0917-123-4567",
+      "website": "jasperlopez.com",
+      "company": {
+        "name": "Lopez Enterprises",
+        "catchPhrase": "Innovating for a better tomorrow",
+        "bs": "Creating sustainable solutions"
+      }
+    },
+    {
+      "id": 13,
+      "type": "user",
+      "name": "Elena Santos",
+      "username": "ESantos",
+      "email": "elena.santos@example.com",
+      "password": "Elena123",
+      "address": {
+        "street": "Magsaysay Avenue",
+        "suite": "Unit 101",
+        "city": "Naga City",
+        "zipcode": "4400",
+        "geo": {
+          "lat": "13.6267",
+          "lng": "123.1854"
+        }
+      },
+      "phone": "0918-234-5678",
+      "website": "elenasantos.com",
+      "company": {
+        "name": "Santos Corporation",
+        "catchPhrase": "Driving progress through innovation",
+        "bs": "Leading in technology solutions"
+      }
+    },
+    {
+      "id": 14,
+      "type": "user",
+      "name": "Ramon Cruz",
+      "username": "RCruz",
+      "email": "ramon.cruz@example.com",
+      "password": "Ramon123",
+      "address": {
+        "street": "Luna Street",
+        "suite": "Unit 501",
+        "city": "Vigan City",
+        "zipcode": "2700",
+        "geo": {
+          "lat": "17.5728",
+          "lng": "120.3883"
+        }
+      },
+      "phone": "0919-345-6789",
+      "website": "ramoncruz.com",
+      "company": {
+        "name": "Cruz Innovations",
+        "catchPhrase": "Empowering communities through technology",
+        "bs": "Creating inclusive solutions"
+      }
+    },
+    {
+      "id": 15,
+      "type": "user",
+      "name": "Maria Dela Cruz",
+      "username": "MDelaCruz",
+      "email": "maria.delacruz@example.com",
+      "password": "Maria123",
+      "address": {
+        "street": "Aguinaldo Highway",
+        "suite": "Unit 102",
+        "city": "Tagaytay City",
+        "zipcode": "4120",
+        "geo": {
+          "lat": "14.1156",
+          "lng": "120.9624"
+        }
+      },
+      "phone": "0920-456-7890",
+      "website": "mariadelacruz.com",
+      "company": {
+        "name": "Dela Cruz Enterprises",
+        "catchPhrase": "Innovating for a sustainable future",
+        "bs": "Sustainability-focused solutions"
+      }
     }
-  ]
+  
+]

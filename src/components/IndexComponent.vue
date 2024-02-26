@@ -3,7 +3,7 @@
         <div class="sidenav-header">
           <div class="d-flex flex-row align-items-center gap-2">
             <div class="j-logo fnt-natural bg-primary text-light d-flex align-items-center fw-bold">J</div>
-            <div class="fnt-natural">Java<span class="text-primary">Rice</span> Web</div>
+            <div class="fnt-natural">Janna's <span class="text-primary fw-bold">Hotel</span></div>
           </div>
         </div>
 
@@ -84,21 +84,22 @@
     </div>
 </div>
 
-       <div class="container-fluid d-flex justify-content-between mt-5">
+       <div class="container-fluid d-flex justify-content-between mt-5" v-if="userType === 'user'">
        <div class="text-dark fs-5 fnt-natural">Choose rooms</div>
        <div class="text-dark fs-5 fnt-natural room-info-text">Room info</div>
        
        </div>
 
-       <div class="main-content bg-light d-flex flex-row">
+       <div class="main-content bg-light d-flex flex-row" v-if="userType === 'user'">
 
-       <div class="rooms p-2 d-flex flex-column gap-2">
-      <div class="room-container">
-        <div class="room-holder rounded ">
+       <div class="rooms p-2 d-flex flex-column gap-2" >
+      <div class="room-container" v-for="room in roomData" :key="room.rmCount">
+        <div class="room-holder rounded" :style="'background-image: url(' + room.rmImage + ')'">
+
            <div class="room-holder-footer ps-2 pe-2 pt-1 d-flex flex-row justify-content-between">
             <div>
-                <div class="room-name bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-900">Couple room</h5></div>
-            <div class="content text-dark">A room design perfect for couple</div>
+                <div class="room-name bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-900">{{ room.rmName }}</h5></div>
+            <div class="content text-dark">{{room.rmInfo}}</div>
             <div class="ratings text-dark">
                 <i class="bi bi-star-fill text-warning me-1"></i>
                 <i class="bi bi-star-fill text-warning me-1"></i>
@@ -118,50 +119,9 @@
       </div>
 
 
-      <div class="room-container">
-        <div class="room-holder rounded">
-            <div class="room-holder-footer ps-2 pe-2 pt-1 d-flex flex-row justify-content-between">
-            <div>
-                <div class="room-name  bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-bold">Couple room</h5></div>
-            <div class="content text-dark">A room design perfect for couple</div>
-            <div class="ratings text-dark">
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star text-warning me-1"></i>
-
-            </div>
-            </div>
-            <div class="room-info-btn me-3 mt-4">
-            <button class="btn btn-primary">Room info</button>
-           </div>
-           </div>
-        </div>
-      </div>
       <!-- :style="{ backgroundImage: 'url('+  roomData[0].rmImage + ')' }" -->
 
-      <div class="room-container">
-        <div class="room-holder rounded" >
-            <div class="room-holder-footer ps-2 pe-2 pt-1 d-flex flex-row justify-content-between">
-            <div>
-                <div class="room-name  bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-bold">Couple room</h5></div>
-            <div class="content text-dark">A room design perfect for couple</div>
-            <div class="ratings text-dark">
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star text-warning me-1"></i>
-
-            </div>
-            </div>
-            <div class="room-info-btn me-3 mt-4">
-            <button class="btn btn-primary">Room info</button>
-           </div>
-           </div>
-        </div>
-      </div>
+     
 
 
 
@@ -187,6 +147,7 @@
     
 </template>
 <script src="./scripts/IndexComponentScript.js"></script>
+
 
 <style scoped>
 @import url('./styles/indexComponent.css');

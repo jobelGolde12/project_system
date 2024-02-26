@@ -40,9 +40,16 @@
 
              <div class="button-container">
                 <button class="btn btn-primary">
-                    <span v-if="!signupIsClicked" @click="loginFunc">Login</span>
-                    <span v-if="signupIsClicked">Done</span>
+                    <span v-if="!signupIsClicked" data-bs-toggle="modal" data-bs-target="#chooseType">Login</span>
+                    <span v-if="signupIsClicked"  data-bs-toggle="modal" data-bs-target="#chooseType">Done</span>
                 </button>
+
+                
+
+
+
+
+
                 <div class="mt-2">
                    <p v-if="!signupIsClicked"> Didn't have an account? | <a href="#" @click="signupFunc">Signup</a> </p>
                    <p v-if="signupIsClicked"> Already have an account? | <a href="#" @click="signinFunc">Login</a> </p>
@@ -57,6 +64,28 @@
                 </div>
             </div>
         </div>
+        
+
+
+<!-- Modal -->
+<div class="modal fade" id="chooseType" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Choose type</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid d-flex gap-3 flex-column">
+            <div><button class="btn btn-outline-primary" @click="userLoginFunc">User</button></div>
+        <div><button class="btn btn-primary" @click="adminLoginFunc">Admin</button></div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
     </div>
 
    
@@ -78,8 +107,15 @@ import userData from '../../data/userData.json'
           username: '',
           password: '',
           loadSystem: true,
-          userDataContainer: userData
+          userDataContainer: userData,
+          isUser: true,
+          toggleBackdrop: true,
+          type: 'z'
         }
+    // },
+    // props: ['userType'],
+    // setup(props){
+    //  console.log(props.userType)
     },
     methods:{
         signupFunc(){
@@ -95,18 +131,30 @@ import userData from '../../data/userData.json'
 
 
         },
-        loginFunc(){
+        userLoginFunc(){
            
+            this.toggleBackdrop =false
+            this.type = 'user'
+            this.$emit('loginFunction',[this.username,this.password, this.type])
             
-            this.$emit('loginFunction',[this.username,this.password])
-               console.log(this.userDataContainer[0].username)
-
             // for(let i = 0; i< this.userDataContainer; i++){
             //     console.log(this.userDataContainer[0].usename)
             // }
            
             
         },
+        adminLoginFunc(){
+           
+           this.toggleBackdrop =false
+           this.type = 'admin'
+           this.$emit('loginFunction',[this.username,this.password, this.type])
+           
+           // for(let i = 0; i< this.userDataContainer; i++){
+           //     console.log(this.userDataContainer[0].usename)
+           // }
+          
+           
+       },
         handleLoadSystem(){
             setTimeout(() =>{
             this.loadSystem = !this.loadSystem
@@ -258,5 +306,9 @@ background-size: cover;
     to{
         width: 100%;
     }
+}
+.modal-body .container-fluid button{
+ position: relative;
+ width: 100%;
 }
 </style>
