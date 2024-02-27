@@ -16,7 +16,7 @@
     <i class="bi bi-sun fs-5" v-if="!changeTheme" @click="changeThemeFunc"></i>
     <i class="bi bi-moon fs-5" v-if="changeTheme" @click="changeThemeFunc"></i>
   </div>
-  <div class=" container d-flex flex-row align-items-center gap-2"><img src="../assets/my-profile.jpg" alt="" class="user-profile"> 
+  <div class=" container d-flex flex-row align-items-center gap-2"><img src="https://scontent.fmnl4-5.fna.fbcdn.net/v/t39.30808-6/414453944_1484162515493206_1621779082099115105_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEm8Vej4ZDH1smt1RDiZ-u5TFOn2YtwVQBMU6fZi3BVAJwAC34z39fOZEf7G6yDk_iPNzwFxOHtoGA8Tb8eWYW7&_nc_ohc=7e37uClJMXEAX_dRnm7&_nc_ht=scontent.fmnl4-5.fna&oh=00_AfD3AJAiXppT_X-TVoesT0DojgO2d5nrjuqx10HwQUAKtQ&oe=65E1C63B" alt="" class="user-profile"> 
 <div class="text-muted">{{ currentUsername }}</div>
 </div>
 
@@ -99,7 +99,7 @@
            <div class="room-holder-footer ps-2 pe-2 pt-1 d-flex flex-row justify-content-between">
             <div>
                 <div class="room-name bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-900">{{ room.rmName }}</h5></div>
-            <div class="content text-dark">{{room.rmInfo}}</div>
+            <div class="content text-dark">{{room.rmInfo.roomInfoQoute}}</div>
             <div class="ratings text-dark">
                 <i class="bi bi-star-fill text-warning me-1"></i>
                 <i class="bi bi-star-fill text-warning me-1"></i>
@@ -110,7 +110,7 @@
             </div>
             </div>
             <div class="room-info-btn me-3 mt-4">
-            <button class="btn btn-primary">Room info</button>
+            <button class="btn btn-info" @click="roomInfoFunc(room.rmCount)">Room info</button>
            </div>
            </div>
 
@@ -129,7 +129,41 @@
 
        <div class="room-info"> 
         <!-- roomData[0].rmImage -->
-        <img :src="rm1" alt="Room inage" style="position:relative;width:100%;height:100%;">
+        <img :src="roomImage" alt="Room inage" style="position:relative;width:100%;height:30%;" v-if="roomImage != ''">
+        <br>
+        
+        <div class="room-info-content">
+            <div class="rating-holder d-flex mt-2 mb-3 flex-row gap-2" v-if="roomImage != ''">
+            <div v-for="num in roomRating" :key="num" class="  d-flex flex-row gap-2">
+        <div><i class="bi bi-star-fill text-warning d-inline"></i></div>
+
+        </div>
+        
+        <i class="bi bi-star d-inline" v-if="roomRating === 1 "></i>
+        <i class="bi bi-star d-inline" v-if="roomRating < 2"></i>
+        <i class="bi bi-star d-inline" v-if="roomRating < 3"></i>
+        <i class="bi bi-star d-inline" v-if="roomRating < 4"></i>
+        <i class="bi bi-star d-inline" v-if="roomRating < 5"></i>
+
+        </div>
+<!--         
+        <div v-if="roomData[roomCount].available === true" class="bg-success">Available</div>
+        <div v-if="roomData[roomCount].available === false" class="bg-warning">Not available</div> -->
+
+        <p v-if="roomImage != ''">
+           <span class="text-muted text-center ms-3 lead"> {{roomData[currentIndex].rmInfo.roomInfoQoute}}  </span>       <br><br>
+           <span class="fw-bold">Cr:</span>  {{ roomData[currentIndex].rmInfo.roomCr }}          <br>
+           <span class="fw-bold">Features:</span> {{ roomData[currentIndex].rmInfo.roomFeatures }} <br>
+           <span class="fw-bold">Price:</span> {{ roomData[currentIndex].rmInfo.roomPrice }}        <br><br>
+        </p>
+        
+            <button class="btn btn-primary" v-if="roomImage != ''">Reserve Now!</button>
+        
+        </div>
+            <div class="container d-flex w-100 h-100 gap-3 pt-5 flex-column" v-if="roomImage === ''">
+                <img class="houseGif" src="https://media3.giphy.com/media/JbEuH54me0ho96xbmU/source.gif" alt="House GIF">
+                <h5 class="text-muted">Room info will appear here</h5>
+            </div>
        </div>
 
        </div>

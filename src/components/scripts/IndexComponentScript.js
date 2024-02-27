@@ -11,7 +11,6 @@ export default{
             activeUser: 1500,
             availableRooms: 500,
             roomData: [],
-            img: '../../assets/my-profile.jpg',
             homeIsclicked: true,
             reservationIsClicked: false,
             profileIsClicked: false,
@@ -19,7 +18,13 @@ export default{
             aboutWebsiteIsClicked: false,
             incomeIsClicked: false,
             notificationIsClicked:false,
-            userType: ''
+            userType: '',
+            roomName: '',
+            roomInfo: {},
+            roomRating: 0,
+            roomAvailable: '',
+            roomImage: '',
+            currentIndex: 0
         }
     },
     props: ['getUserType'],
@@ -45,8 +50,27 @@ export default{
                 }
             }
 
-            const rm1 = new ProvideRoomData('https://www.berjayahotel.com/sites/default/files/hotel-room-type/makati/04-premier-room.jpg','Couple room','Room info here',4,true,1)
-            const rm2 = new ProvideRoomData('https://www.nobuhotelmanila.com/rooms/images/FA-Primier.jpg','Couple room','Room2 info here',4 ,true,2)
+            const roomInfoPerObject = [
+                {
+                    roomInfoCount: 1,
+                    roomCr: 2,
+                    roomBed: 1,
+                    roomInfoQoute: 'Best room for couple',
+                    roomFeatures: 'Has a tv and table',
+                    roomPrice: 'PHP3,000/Day'
+                },
+                {
+                    roomInfoCount: 2,
+                    roomCr: 1,
+                    roomBed: 1,
+                    roomInfoQoute: 'Best room for vacation/stay-in',
+                    roomFeatures: 'Has a tv, kitchen, telephone, and best for vacation with you and your friend/love-one',
+                    roomPrice: 'PHP3,500/Day'
+                }
+            ]
+            console.log(roomInfoPerObject)
+            const rm1 = new ProvideRoomData('https://www.berjayahotel.com/sites/default/files/hotel-room-type/makati/04-premier-room.jpg','Couple room',roomInfoPerObject[0],4,true,1)
+            const rm2 = new ProvideRoomData('https://www.nobuhotelmanila.com/rooms/images/FA-Primier.jpg','Couple room',roomInfoPerObject[1],4 ,true,2)
             const rm3 = new ProvideRoomData('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/aa/71/f6/cheap-price-based.jpg?w=1200&h=-1&s=1','Couple room','Room3 info here',4, true,3)
             const rm4 = new ProvideRoomData('https://s3-cdn.hotellinksolutions.com/hls/data/1044/website/general/bn/mobile_ban2.jpg','Couple room','Room4 info here',4 ,true,4)
             const rm5 = new ProvideRoomData('https://cdn4.equinox-hotels.com/wp-content/uploads/2019/12/25163413/deluxekingcity-room-cityview.webp','Couple room','Room5 info here',4, true,5)
@@ -213,6 +237,18 @@ export default{
             this.aboutWebsiteIsClicked = false
             this.incomeIsClicked = false
             this.notificationIsClicked =true
+        },
+        roomInfoFunc(getRoomCount){
+            for(let i = 0; i < this.roomData.length; i++){
+                if(this.roomData[i].rmCount === getRoomCount){
+                   this.roomName = this.roomData[i].rmName
+                   this.roomInfo = this.roomData[i].rmInfo
+                   this.roomRating = this.roomData[i].rmRating
+                   this.roomAvailable = this.roomData[i].rmAvailable
+                   this.roomImage = this.roomData[i].rmImage
+                   this.currentIndex = getRoomCount
+                }
+            }
         }
     },
     mounted(){

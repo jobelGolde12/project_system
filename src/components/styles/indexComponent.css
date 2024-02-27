@@ -64,9 +64,22 @@
        width: 30%;
        height: 100%;
        overflow-y: scroll;
-       background: #f1f1f1;
+       background: #fff;
        padding: 1rem;
    }
+    .room-info .room-info-content{
+        position:relative;
+        top: 20%;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    .room-info .room-info-content::-webkit-scrollbar{
+        display: none;
+    }
+   .main-content .room-info::-webkit-scrollbar {
+    display: none;
+  }
    .room-info-text{
    margin-right: 15rem;
    }
@@ -115,5 +128,11 @@
        background-image: radial-gradient( circle 897px at 9% 80.3%,  rgba(55,60,245,1) 0%, rgba(234,161,15,0.90) 100.2% );
    }
 
+   .houseGif{
+    position:relative;
+    width: 100%;
+    height: 20%;
+    display: block;
+   }
    /*837*/
    
