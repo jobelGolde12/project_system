@@ -127,12 +127,27 @@
    .active-users{
        background-image: radial-gradient( circle 897px at 9% 80.3%,  rgba(55,60,245,1) 0%, rgba(234,161,15,0.90) 100.2% );
    }
-
+ 
+   .houseGIF-container{
+    position: absolute;
+    top: 20%;
+    left: 0;
+   }
    .houseGif{
     position:relative;
     width: 100%;
     height: 20%;
     display: block;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+   }
+   .houseGIF-container h5{
+    transform: translateY(-150%);
+   }
+ .room-info-content{
+    position: absolute;
+    transform: translateY(-20%);
    }
    /*837*/
    

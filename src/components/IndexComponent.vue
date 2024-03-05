@@ -2,8 +2,8 @@
     <div class="header bg-light d-flex flex-row justify-content-between align-items-center p-3">
         <div class="sidenav-header">
           <div class="d-flex flex-row align-items-center gap-2">
-            <div class="j-logo fnt-natural bg-primary text-light d-flex align-items-center fw-bold">J</div>
-            <div class="fnt-natural">Janna's <span class="text-primary fw-bold">Hotel</span></div>
+            <div class="j-logo fnt-natural bg-primary text-light d-flex align-items-center fw-bold">M</div>
+            <div class="fnt-natural"> <span class="text-primary fw-bold">Hotel</span></div>
           </div>
         </div>
 
@@ -12,10 +12,7 @@
 <div class="right-top-icons gap-3 me-5 mt-2  d-flex flex-row align-items-center">
 
 
-  <div class="theme">
-    <i class="bi bi-sun fs-5" v-if="!changeTheme" @click="changeThemeFunc"></i>
-    <i class="bi bi-moon fs-5" v-if="changeTheme" @click="changeThemeFunc"></i>
-  </div>
+  <div class="location"><i class="bi bi-geo-alt fs-5" data-bs-toggle="modal" data-bs-target="#locationModal"></i></div>
   <div class=" container d-flex flex-row align-items-center gap-2"><img src="https://scontent.fmnl4-5.fna.fbcdn.net/v/t39.30808-6/414453944_1484162515493206_1621779082099115105_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEm8Vej4ZDH1smt1RDiZ-u5TFOn2YtwVQBMU6fZi3BVAJwAC34z39fOZEf7G6yDk_iPNzwFxOHtoGA8Tb8eWYW7&_nc_ohc=7e37uClJMXEAX_dRnm7&_nc_ht=scontent.fmnl4-5.fna&oh=00_AfD3AJAiXppT_X-TVoesT0DojgO2d5nrjuqx10HwQUAKtQ&oe=65E1C63B" alt="" class="user-profile"> 
 <div class="text-muted">{{ currentUsername }}</div>
 </div>
@@ -25,6 +22,34 @@
 
 
 </div>
+
+   
+
+
+
+
+        
+
+                <!-- Location Modal -->
+                <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Hotel's location</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="hotel-name">Hotel Name: <p class="text-primary d-inline mb-2">{{ hotelName }}</p></div>
+                        <div class="mb-3">Hotel location <p class="text-primary d-inline">{{ hotelLocation }}</p></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.36436456693!2d120.97935079999999!3d14.578301999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca2f1b3f6db3%3A0x4268a4edaa08a17d!2sM%20Hotel%20Manila!5e0!3m2!1sen!2sph!4v1709628253606!5m2!1sen!2sph" position="relative;" width="100%" height="70%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                        <p class="text-muted">Click the <span class="d-inline text-info">view large map</span> at the top to open a newtab</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
 
 
 
@@ -101,11 +126,11 @@
                 <div class="room-name bg-warning rounded ps-1 pe-1"><h5 class="text-dark fnt-natural f-900">{{ room.rmName }}</h5></div>
             <div class="content text-dark">{{room.rmInfo.roomInfoQoute}}</div>
             <div class="ratings text-dark">
+                <i v-for="num in room.rmRating" :key="num.rmRating" class="bi bi-star-fill text-warning me-1"></i>
+                <!-- <i class="bi bi-star-fill text-warning me-1"></i>
                 <i class="bi bi-star-fill text-warning me-1"></i>
                 <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star-fill text-warning me-1"></i>
-                <i class="bi bi-star text-warning me-1"></i>
+                <i class="bi bi-star text-warning me-1"></i> -->
 
             </div>
             </div>
@@ -130,10 +155,10 @@
        <div class="room-info"> 
         <!-- roomData[0].rmImage -->
         <img :src="roomImage" alt="Room inage" style="position:relative;width:100%;height:30%;" v-if="roomImage != ''">
-        <br>
         
-        <div class="room-info-content">
-            <div class="rating-holder d-flex mt-2 mb-3 flex-row gap-2" v-if="roomImage != ''">
+        
+        <div class="room-info-content container p-0 mt-0 pt-0">
+            <div class="rating-holder d-flex mt-0 pt-0 flex-row gap-2" v-if="roomImage != ''">
             <div v-for="num in roomRating" :key="num" class="  d-flex flex-row gap-2">
         <div><i class="bi bi-star-fill text-warning d-inline"></i></div>
 
@@ -150,19 +175,20 @@
         <div v-if="roomData[roomCount].available === true" class="bg-success">Available</div>
         <div v-if="roomData[roomCount].available === false" class="bg-warning">Not available</div> -->
 
-        <p v-if="roomImage != ''">
-           <span class="text-muted text-center ms-3 lead"> {{roomData[currentIndex].rmInfo.roomInfoQoute}}  </span>       <br><br>
-           <span class="fw-bold">Cr:</span>  {{ roomData[currentIndex].rmInfo.roomCr }}          <br>
-           <span class="fw-bold">Features:</span> {{ roomData[currentIndex].rmInfo.roomFeatures }} <br>
-           <span class="fw-bold">Price:</span> {{ roomData[currentIndex].rmInfo.roomPrice }}        <br><br>
-        </p>
+        <div class="container" v-if="roomImage != ''">
+           <div class="text-muted text-center mt-1 lead"> {{roomData[currentIndex -1].rmInfo.roomInfoQoute}}  </div>  <br>
+           <span class="fw-bold " >Cr:</span>  {{ roomData[currentIndex -1].rmInfo.roomCr }}          <br>
+           <span class="fw-bold " >Cr:</span>  {{ roomData[currentIndex -1].rmInfo.roomBed }}          <br>
+           <span class="fw-bold">Features:</span> {{ roomData[currentIndex -1].rmInfo.roomFeatures }} <br>
+           <span class="fw-bold">Price:</span> {{ roomData[currentIndex -1].rmInfo.roomPrice }}        <br><br>
+        </div>
         
-            <button class="btn btn-primary" v-if="roomImage != ''">Reserve Now!</button>
+            <button class="btn btn-primary" style="transform: translateY(-50%);" v-if="roomImage != ''">Reserve Now!</button>
         
         </div>
-            <div class="container d-flex w-100 h-100 gap-3 pt-5 flex-column" v-if="roomImage === ''">
+            <div class="houseGIF-container container d-flex w-100 h-100 flex-column" v-if="roomImage === ''">
                 <img class="houseGif" src="https://media3.giphy.com/media/JbEuH54me0ho96xbmU/source.gif" alt="House GIF">
-                <h5 class="text-muted">Room info will appear here</h5>
+                <h5 class="text-muted text-center pt-0 mt-0">Room info will appear here</h5>
             </div>
        </div>
 
@@ -172,11 +198,15 @@
         
        
 
-      <!-- ReservationComponent -->
-      <div class="body " v-if="reservationIsClicked">
-      <ReservationComponent />
-      
-    </div>
+                <!-- ReservationComponent -->
+                <div class="body " v-if="reservationIsClicked" >
+                <ReservationComponent />
+                
+                </div>
+
+           <div class="body" v-if="!homeIsclicked && !reservationIsClicked && profileIsClicked">
+            <MyProfile />
+           </div>
     </div>
     
 </template>

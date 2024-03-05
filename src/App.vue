@@ -56,13 +56,14 @@ export default {
         if(this.dataArray[i].username === this.username && this.dataArray[i].password === this.password){
         this.WrongIdOrPassword = false
         if(this.type === this.dataArray[i].type){
+          document.querySelector('.wrong-username-or-password').style.display = 'none'
+          this.signin = true
           console.log(this.type + 'Correct')
         }else{
           console.log(this.type + 'Didnt match')
           
         }
         
-            this.signin = true
 
         break
       }else{
