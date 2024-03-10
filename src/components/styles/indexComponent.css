@@ -32,6 +32,13 @@
        justify-content: center;
        
    }
+   .profile-at-top:hover , .profile-at-top-name{
+    cursor: pointer;
+
+   }
+   /* .profile-at-top:hover img{
+    border: 2px solid darkorange;
+   } */
    .header > .right-top-icons{
        position: relative;
        float: right;
@@ -148,6 +155,10 @@
  .room-info-content{
     position: absolute;
     transform: translateY(-20%);
+   }
+
+   .sidenav-body .ul .li{
+    cursor: pointer;
    }
    /*837*/
    

@@ -58,9 +58,8 @@ export default {
         if(this.type === this.dataArray[i].type){
           document.querySelector('.wrong-username-or-password').style.display = 'none'
           this.signin = true
-          console.log(this.type + 'Correct')
         }else{
-          console.log(this.type + 'Didnt match')
+          console.log(this.type + ' Didnt match')
           
         }
         

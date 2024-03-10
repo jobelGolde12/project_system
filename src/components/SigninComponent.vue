@@ -6,7 +6,7 @@
 
         <div class="signin-card d-flex flex-column">
             <div class="header d-flex flex-row justify-content-between align-items-center mb-2 pt-2 ps-3 pe-3">
-                <div class="logo"><h5 class="fs-5 fw-bold text-dark">Janna's <span class="text-primary">Hotel</span></h5></div>
+                <div class="logo"><h5 class="fs-5 fw-bold text-dark"><span class="bg-primary text-light m-logo">M</span> <span class="text-primary">Hotel</span></h5></div>
                 <div class="links"><a href="#">About</a></div>
             </div>
 
@@ -30,16 +30,21 @@
 
             <div class="input-group mb-2">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-lock"></i></span>
-            <input type="text" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1" v-model="password">
+            <input type="password" class="form-control"  id="passwordInput" placeholder="password" aria-label="password" aria-describedby="basic-addon1" v-model="password">
             </div>
 
             <div class="input-group mb-2" v-if="signupIsClicked">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-lock"></i></span>
-            <input type="text" class="form-control" placeholder="Confirm password" aria-label="password" aria-describedby="basic-addon1">
+            <input type="password" class="form-control" id="confirmPasswordInput" placeholder="Confirm password" aria-label="password" aria-describedby="basic-addon1">
             </div>
 
+           <div class="show-password-container container d-flex gap-2 flex-row align-items-center mt-0">
+           <input type="checkbox" id="showPassCheckbox" @click="showPassFunc">
+                <p v-if="showPassword" class="text-muted mt-3">Show password</p>
+                <p v-if="!showPassword"  class="text-muted mt-3">Hide password</p>
+           </div>
              <div class="button-container">
-                <button class="btn btn-primary">
+                <button class="btn btn-primary mb-0">
                     <span v-if="!signupIsClicked" data-bs-toggle="modal" data-bs-target="#chooseType">Login</span>
                     <span v-if="signupIsClicked"  data-bs-toggle="modal" data-bs-target="#chooseType">Done</span>
                 </button>
@@ -50,9 +55,9 @@
 
 
 
-                <div class="mt-2">
+                <div class="">
                    <p v-if="!signupIsClicked"> Didn't have an account? | <a href="#" @click="signupFunc">Signup</a> </p>
-                   <p v-if="signupIsClicked"> Already have an account? | <a href="#" @click="signinFunc">Login</a> </p>
+                   <p v-if="signupIsClicked" class="mt-0 pt-0"> Already have an account? | <a href="#" @click="signinFunc">Login</a> </p>
                 </div>
              </div>
 
@@ -110,7 +115,8 @@ import userData from '../../data/userData.json'
           userDataContainer: userData,
           isUser: true,
           toggleBackdrop: true,
-          type: 'z'
+          type: 'z',
+          showPassword: true
         }
     // },
     // props: ['userType'],
@@ -159,6 +165,18 @@ import userData from '../../data/userData.json'
             setTimeout(() =>{
             this.loadSystem = !this.loadSystem
             },5000)
+        },
+        showPassFunc(){
+            let passwordInput = document.getElementById('passwordInput')
+            let confirmPasswordInput = document.getElementById('confirmPasswordInput')
+
+            if(passwordInput.type === 'password' && confirmPasswordInput.type === 'password'){
+                passwordInput.type = 'text'
+                confirmPasswordInput.type = 'text'
+            }else{
+                passwordInput.type = 'password'
+                confirmPasswordInput.type = 'password'
+            }
         }
     },
     mounted(){
@@ -172,6 +190,7 @@ import userData from '../../data/userData.json'
 </style>
 
 <style scoped>
+
 
 .main-content{
     position: absolute;
@@ -298,6 +317,19 @@ background-size: cover;
     animation: animateLoader 5s ease forwards;
     background: linear-gradient(to right , blue,#007bff);
 }
+.m-logo{
+    padding: .4rem .5rem;
+    border-radius: 50%;
+}
+#showPassCheckbox{
+    cursor: pointer;
+}
+#showPassCheckbox:hover{
+    color: green;
+}
+/* .show-password-container{
+    transform: translateY(-20%);
+} */
 @keyframes animateLoader{
     from{
         width: 5%;
@@ -311,4 +343,5 @@ background-size: cover;
  position: relative;
  width: 100%;
 }
+
 </style>

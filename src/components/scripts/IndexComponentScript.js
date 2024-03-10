@@ -1,7 +1,9 @@
 
 import ReservationComponent from '../ReservationComponent.vue'
 import MyProfile from '../MyProfile.vue'
-
+import ReservationComponentForUser from '../ReservationComponentForUser.vue'
+import AboutWebsite from '../AboutWebsite.vue'
+import ContactComponent from '../ContactComponent.vue'
 export default{
     name: 'IndexComponent',
     data(){
@@ -9,7 +11,7 @@ export default{
             changeTheme: false,
             albumData: [],
             hoverSidenavListBool: false,
-            currentUsername: 'Jobel v. Golde',
+            currentUsername: 'Boggart',
             activeUser: 1500,
             availableRooms: 500,
             roomData: [],
@@ -20,6 +22,7 @@ export default{
             aboutWebsiteIsClicked: false,
             incomeIsClicked: false,
             notificationIsClicked:false,
+            contactIsClicked: false,
             userType: '',
             roomName: '',
             roomInfo: {},
@@ -28,14 +31,18 @@ export default{
             roomAvailable: '',
             roomImage: '',
             currentIndex: null,
+            finalCurrentIndexForReservation: null,
             hotelName: 'M hotel',
-            hotelLocation: '434 L Guerrero Street, Ermita, Manila, Luzon, Philippines'
+            hotelLocation: '434 L Guerrero Street, Ermita, Manila, Luzon, Philippines',
+            reserveNowData: [],
+            reserveNowDataAdditional: [],
+            reservationDate: null
         
         }
     },
     props: ['getUserType'],
     components:{
-        ReservationComponent, MyProfile
+        ReservationComponent, MyProfile, ReservationComponentForUser, AboutWebsite,ContactComponent
     },
     methods: {
         changeThemeFunc(){
@@ -57,66 +64,68 @@ export default{
             }
 
             class RoomDataClass{
-                constructor(roomCr,roomBed,roomInfoQoute,roomFeatures,roomPrice){
+                constructor(roomCr,roomBed,roomOccupacy,roomInfoQoute,roomFeatures,roomPrice){
  
                     this.roomCr = roomCr
                     this.roomBed = roomBed
+                    this.roomOccupacy = roomOccupacy
                     this.roomInfoQoute = roomInfoQoute
                     this.roomFeatures = roomFeatures
                     this.roomPrice = roomPrice
+                    
                 }
             }
-            let roomData1 = new RoomDataClass(1,1,'Best room for couple','Has a tv and table','PHP3,000/Day')
-            let roomData2 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a tv, kitchen, telephone, and best for vacation with you and your friend/love-one','PHP4,000/Day')
-            let roomData3 = new RoomDataClass(1,1,'Design for individual guest','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData4 = new RoomDataClass(1,2,'Silent and full of romance','Has a TV and kitchen ','PHP3,000/Day')
-            let roomData5 = new RoomDataClass(1,2,'Modernistic room is in your eye','has a two bed, modernistic seat and city view','PHP5,000/Day')
-            let roomData6 = new RoomDataClass(1,1,'Simple room','Has one bed and TV at the front ','PHP1,000/Day')
-            let roomData7 = new RoomDataClass(1,1,'Metro Chic Retreat','Private bathroom with bathtub and shower. And also has a smart TV with streaming services.','PHP5,000/Day')
-            let roomData8 = new RoomDataClass(1,2,'Feel like an Star with this room','Queen bed on a raised platform. Has a sofa, locker, TV, and shower','PHP4,000/Day')
-            let roomData9 = new RoomDataClass(1,1,'A room that full of Romance','Has a modernistic painting,TV, shower and free food ','PHP3,000/Day')
-            let roomData10 = new RoomDataClass(1,1,'Best scene every wakeup','Has a wider bet, glass window, table and modernistic floor','PHP4,000/Day')
-            let roomData11 = new RoomDataClass(2,2,'Best room with your friends','Has 2 bed , 1 table and free food ','PHP3,000/Day')
-            let roomData12 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData13 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData14 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData15 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData16 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData17 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData18 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData19 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData20 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData21 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData22 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData23 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData24 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData25 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData26 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData27 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData28 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData29 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData30 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData31 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData32 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData33 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData34 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData35 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData36 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData37 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData38 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData39 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData40 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData41 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData42 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData43 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData44 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData45 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData46 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData47 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData48 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData49 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData50 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
-            let roomData51 = new RoomDataClass(1,1,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData1 = new RoomDataClass(1,1,2,'Best room for couple','Has a tv and table','PHP3,000/Day')
+            let roomData2 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a tv, kitchen, telephone, and best for vacation with you and your friend/love-one','PHP4,000/Day')
+            let roomData3 = new RoomDataClass(1,1,2,'Design for individual guest','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData4 = new RoomDataClass(1,2,4,'Silent and full of romance','Has a TV and kitchen ','PHP3,000/Day')
+            let roomData5 = new RoomDataClass(1,2,4,'Modernistic room is in your eye','has a two bed, modernistic seat and city view','PHP5,000/Day')
+            let roomData6 = new RoomDataClass(1,1,2,'Simple room','Has one bed and TV at the front ','PHP1,000/Day')
+            let roomData7 = new RoomDataClass(1,1,2,'Metro Chic Retreat','Private bathroom with bathtub and shower. And also has a smart TV with streaming services.','PHP5,000/Day')
+            let roomData8 = new RoomDataClass(1,2,4,'Feel like an Star with this room','Queen bed on a raised platform. Has a sofa, locker, TV, and shower','PHP4,000/Day')
+            let roomData9 = new RoomDataClass(1,1,2,'A room that full of Romance','Has a modernistic painting,TV, shower and free food ','PHP3,000/Day')
+            let roomData10 = new RoomDataClass(1,1,2,'Best scene every wakeup','Has a wider bet, glass window, table and modernistic floor','PHP4,000/Day')
+            let roomData11 = new RoomDataClass(2,2,4,'Best room with your friends','Has 2 bed , 1 table and free food ','PHP3,000/Day')
+            let roomData12 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData13 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData14 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData15 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData16 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData17 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData18 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData19 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData20 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData21 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData22 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData23 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData24 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData25 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData26 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData27 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData28 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData29 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData30 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData31 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData32 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData33 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData34 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData35 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData36 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData37 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData38 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData39 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData40 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData41 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData42 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData43 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData44 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData45 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData46 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData47 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData48 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData49 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData50 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
+            let roomData51 = new RoomDataClass(1,1,2,'Best room for vacation/stay-in','Has a cabinet perfect for storing work clothes ','PHP3,000/Day')
 
 
         
@@ -235,6 +244,7 @@ export default{
             this.roomIsClicked = false
             this.aboutWebsiteIsClicked = false
             this.incomeIsClicked = false
+            this.contactIsClicked = false
             this.notificationIsClicked =false
         },
         reservationIsClickedFunc(){
@@ -243,6 +253,7 @@ export default{
             this.profileIsClicked = false
             this.roomIsClicked = false
             this.incomeIsClicked = false
+            this.contactIsClicked = false
             this.aboutWebsiteIsClicked = false
             this.notificationIsClicked =false
         },
@@ -252,8 +263,10 @@ export default{
             this.profileIsClicked = true
             this.roomIsClicked = false
             this.incomeIsClicked = false
+            this.contactIsClicked = false
             this.aboutWebsiteIsClicked = false
             this.notificationIsClicked =false
+
         },
         roomIsClickedFunc(){
             this.homeIsclicked = false
@@ -261,6 +274,7 @@ export default{
             this.profileIsClicked = false
             this.roomIsClicked = true
             this.incomeIsClicked = false
+            this.contactIsClicked = false
             this.aboutWebsiteIsClicked = false
             this.notificationIsClicked =false
         },
@@ -270,6 +284,7 @@ export default{
             this.profileIsClicked = false
             this.roomIsClicked = false
             this.incomeIsClicked = false
+            this.contactIsClicked = false
             this.aboutWebsiteIsClicked = true
             this.notificationIsClicked =false
         },
@@ -280,6 +295,7 @@ export default{
             this.roomIsClicked = false
             this.aboutWebsiteIsClicked = false
             this.incomeIsClicked = true
+            this.contactIsClicked = false
             this.notificationIsClicked =false
         },
         notificationIsClickedFunc(){
@@ -289,7 +305,18 @@ export default{
             this.roomIsClicked = false
             this.aboutWebsiteIsClicked = false
             this.incomeIsClicked = false
+            this.contactIsClicked = false
             this.notificationIsClicked =true
+        },
+        contactIsClickedFunc(){
+            this.homeIsclicked = false
+            this.reservationIsClicked = false
+            this.profileIsClicked = false
+            this.roomIsClicked = false
+            this.aboutWebsiteIsClicked = false
+            this.incomeIsClicked = false
+            this.contactIsClicked = true
+            this.notificationIsClicked =false
         },
         roomInfoFunc(getRoomCount){
             for(let i = 0; i < this.roomData.length; i++){
@@ -304,6 +331,35 @@ export default{
                 break;
                 }
             }
+        },
+        reserveNowFunc(){
+            let reservationFirstname = document.getElementById('reservationFirstname').value
+            let reservationLastname = document.getElementById('reservationLastname').value
+            let reservationEmail = document.getElementById('reservationEmail').value
+            let resDate = document.getElementById('reservationDate').value
+
+            this.reserveNowData.push({firstName: reservationFirstname , lastName: reservationLastname, email: reservationEmail})
+        
+
+            const finalIndex = this.currentIndex
+            this.finalCurrentIndexForReservation = finalIndex
+            this.reservationDate = resDate
+        },
+        addFood(){
+            this.reserveNowDataAdditional.push({list: 'Food', price: 500})
+            alert(this.reserveNowDataAdditional[0].list + ' ' + this.reserveNowDataAdditional[0].price)
+        },
+        profileAtTopClickFunc(){
+            // let profileAtTop = document.querySelector('.profile-at-top')
+            this.homeIsclicked = false
+            this.reservationIsClicked = false
+            this.profileIsClicked = true
+            this.roomIsClicked = false
+            this.incomeIsClicked = false
+            this.contactIsClicked = false
+            this.aboutWebsiteIsClicked = false
+            this.notificationIsClicked =false
+
         }
     },
     mounted(){
