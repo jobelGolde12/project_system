@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrong-username-or-password alert alert-warning ps-3 pe-3"><i class="bi bi-times"></i>Wrong Username or Password</div>
-    <SigninComponent @loginFunction="loginFunction" v-if="!signin" />
+    <SigninComponent @loginFunction="loginFunction" @openTheIndexComponent="openTheIndexComponent" v-if="!signin" />
     <IndexComponent v-if="signin" :getUserType="type"/>
   </div>
 
@@ -75,7 +75,11 @@ export default {
       }
       }
       
-    }
+    },
+    
+    openTheIndexComponent(){
+    this.signin = true
+},
     
   },
   mounted(){

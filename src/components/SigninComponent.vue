@@ -6,7 +6,7 @@
 
         <div class="signin-card d-flex flex-column">
             <div class="header d-flex flex-row justify-content-between align-items-center mb-2 pt-2 ps-3 pe-3">
-                <div class="logo"><h5 class="fs-5 fw-bold text-dark"><span class="bg-primary text-light m-logo">M</span> <span class="text-primary">Hotel</span></h5></div>
+                <div class="logo"><h5 class="fs-5 fw-bold text-dark"><span class="bg-primary text-light m-logo pt-1 p   b-1">M</span> <span class="text-primary">Hotel</span></h5></div>
                 <div class="links"><a href="#">About</a></div>
             </div>
 
@@ -14,17 +14,17 @@
                 <div class="image"></div>
                 <div class="content">
                 <h5 class="text-primary mt-3 ms-2 welcome-back" v-if="!signupIsClicked">Welcome Back!</h5>
-                <h5 class="text-primary mt-3 ms-2 signup" v-if="signupIsClicked">Signup</h5>
-                <div class=" container-fluid mt-4">
+                <h5 class="text-primary mt-3 ms-2 signup mb-0 pb-0"  v-if="signupIsClicked">Signup</h5>
+                <div class=" container-fluid mt-2">
      
-                    <div class="input-group mb-2" v-if="signupIsClicked">
+                    <div class="input-group mb-2 mt-0" v-if="signupIsClicked">
                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope"></i></span>
-                    <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Email" id="email" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
 
             <div class="input-group mb-2">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-person"></i></span>
-            <input type="text" class="form-control" placeholder="username" aria-label="Username" aria-describedby="basic-addon1" v-model="username">
+            <input type="text" class="form-control" placeholder="username" id="username" aria-label="Username" aria-describedby="basic-addon1" v-model="username">
             </div>
 
 
@@ -38,15 +38,22 @@
             <input type="password" class="form-control" id="confirmPasswordInput" placeholder="Confirm password" aria-label="password" aria-describedby="basic-addon1">
             </div>
 
-           <div class="show-password-container container d-flex gap-2 flex-row align-items-center mt-0">
+           <div class="show-password-container container d-flex gap-2 flex-row align-items-center mt-0" v-if="!signupIsClicked">
            <input type="checkbox" id="showPassCheckbox" @click="showPassFunc">
                 <p v-if="showPassword" class="text-muted mt-3">Show password</p>
                 <p v-if="!showPassword"  class="text-muted mt-3">Hide password</p>
            </div>
+
+           <div class="show-password-container container d-flex gap-2 flex-row align-items-center mt-0" v-if="signupIsClicked">
+           <input type="checkbox" id="showPassCheckbox" @click="showPassFuncForSignup">
+                <p v-if="showPassword" class="text-muted mt-3">Show password</p>
+                <p v-if="!showPassword"  class="text-muted mt-3">Hide password</p>
+           </div>
+
              <div class="button-container">
                 <button class="btn btn-primary mb-0">
                     <span v-if="!signupIsClicked" data-bs-toggle="modal" data-bs-target="#chooseType">Login</span>
-                    <span v-if="signupIsClicked"  data-bs-toggle="modal" data-bs-target="#chooseType">Done</span>
+                    <span v-if="signupIsClicked"  @click="signup">Done</span>
                 </button>
 
                 
@@ -134,7 +141,8 @@ import userData from '../../data/userData.json'
             this.signupIsClicked = !this.signupIsClicked
             document.querySelector('.signin-card').style.height = '60%'
             document.querySelector('.image').style.height = '90%'
-
+            let passwordInput = document.getElementById('passwordInput')
+            passwordInput.value = ''
 
         },
         userLoginFunc(){
@@ -142,12 +150,29 @@ import userData from '../../data/userData.json'
             this.toggleBackdrop =false
             this.type = 'user'
             this.$emit('loginFunction',[this.username,this.password, this.type])
-            
+
             // for(let i = 0; i< this.userDataContainer; i++){
             //     console.log(this.userDataContainer[0].usename)
             // }
            
             
+        },
+        signup(){
+            let email = document.getElementById('email')
+            let username = document.getElementById('username')
+            let passwordInput = document.getElementById('passwordInput')
+            let confirmPasswordInput = document.getElementById('confirmPasswordInput')
+
+            const signupData = {
+                email: email.value,
+                username: username.value,
+                password: passwordInput.value,
+                confirmPassword: confirmPasswordInput.value
+            }
+            this.userDataContainer.push(signupData)
+            console.log(this.userDataContainer[this.userDataContainer.length -1])
+            this.type = 'user'
+            this.$emit('openTheIndexComponent',[email.value,username.value,passwordInput.value,confirmPasswordInput.value])
         },
         adminLoginFunc(){
            
@@ -155,9 +180,9 @@ import userData from '../../data/userData.json'
            this.type = 'admin'
            this.$emit('loginFunction',[this.username,this.password, this.type])
            
-           // for(let i = 0; i< this.userDataContainer; i++){
-           //     console.log(this.userDataContainer[0].usename)
-           // }
+           for(let i = 0; i< this.userDataContainer; i++){
+               console.log(this.userDataContainer[0].usename)
+           }
           
            
        },
@@ -168,16 +193,27 @@ import userData from '../../data/userData.json'
         },
         showPassFunc(){
             let passwordInput = document.getElementById('passwordInput')
-            let confirmPasswordInput = document.getElementById('confirmPasswordInput')
 
-            if(passwordInput.type === 'password' && confirmPasswordInput.type === 'password'){
+            if(passwordInput.type === 'password'){
                 passwordInput.type = 'text'
-                confirmPasswordInput.type = 'text'
             }else{
                 passwordInput.type = 'password'
-                confirmPasswordInput.type = 'password'
             }
-        }
+
+                   
+        },
+        showPassFuncForSignup(){
+            let confirmPasswordInput = document.getElementById('confirmPasswordInput')
+            let passwordInput = document.getElementById('passwordInput')
+            
+            if(confirmPasswordInput.type === 'password'){
+            confirmPasswordInput.type = 'text'
+            passwordInput.type = 'text'
+            }else{
+            confirmPasswordInput.type = 'password'
+            passwordInput.type = 'password'
+            }
+            }
     },
     mounted(){
         this.handleLoadSystem()

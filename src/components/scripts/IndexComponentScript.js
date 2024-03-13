@@ -12,8 +12,8 @@ export default{
             albumData: [],
             hoverSidenavListBool: false,
             currentUsername: 'Boggart',
-            activeUser: 1500,
-            availableRooms: 500,
+            activeUser: 500,
+            availableRooms: 300,
             roomData: [],
             homeIsclicked: true,
             reservationIsClicked: false,
@@ -344,10 +344,19 @@ export default{
             const finalIndex = this.currentIndex
             this.finalCurrentIndexForReservation = finalIndex
             this.reservationDate = resDate
+
+            document.getElementById('reserveNowForm').addEventListener('submit', event =>{
+                event.preventDefault()
+            })
         },
         addFood(){
             this.reserveNowDataAdditional.push({list: 'Food', price: 500})
-            alert(this.reserveNowDataAdditional[0].list + ' ' + this.reserveNowDataAdditional[0].price)
+        },
+        addRoomUpgrades(){
+            this.reserveNowDataAdditional.push({list: 'room upgrades', price: 300})
+        },
+        addTransportationService(){
+            this.reserveNowDataAdditional.push({list: 'add transportation service', price: 700})
         },
         profileAtTopClickFunc(){
             // let profileAtTop = document.querySelector('.profile-at-top')

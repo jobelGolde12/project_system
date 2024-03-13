@@ -96,7 +96,16 @@
                     <div class="container mt-3">
                         <hr>
                         <p class="text-muted fnt-natural">Trusted with over <span class="text-primary">1,500+</span> people</p>
-                        <button class="btn btn-primary">Read more</button>
+                        <button class="btn btn-primary d-flex flex-row align-items-center">
+
+                           
+                            <lord-icon
+                                src="https://cdn.lordicon.com/prjooket.json"
+                                trigger="hover"
+                                colors="primary:#ffffff"
+                                style="width:20px;height:20px">
+                            </lord-icon>
+                            Read more</button>
                     </div>
 
 
@@ -107,7 +116,7 @@
         <div class="container-lg mt-0 card-container">
     <div class="row d-flex flex-row gap-3 justify-content-center align-items-center  pt-1">
         <div class="available-rooms col-lg-3 col-md-3 p-3 text-light rounded text-center ">Available Rooms <br> {{ availableRooms }}</div>
-        <div class="all-users col-lg-3 col-md-3 p-3 text-light rounded text-center">All users <br> 5,000</div>
+        <div class="all-users col-lg-3 col-md-3 p-3 text-light rounded text-center">All users <br> 2,000</div>
         <div class="active-users col-lg-3 col-md-3 p-3 text-light rounded text-center" >Active user <br> {{ activeUser }}</div>
     </div>
 </div>
@@ -208,31 +217,30 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                      <form class="form">
+                                      <form class="form" id="reserveNowForm">
                                        
                                         <div class="input-group mb-3">
                                           <span class="input-group-text" id="reservationFirstname1"><i class="bi bi-person"></i></span>
-                                            <input type="text" class="form-control" placeholder="Firstname" aria-label="Username" aria-describedby="reservationFirstname1" name="reservationFirstname" id="reservationFirstname">
+                                            <input type="text" class="form-control" placeholder="Firstname" aria-label="Username" aria-describedby="reservationFirstname1" name="reservationFirstname" id="reservationFirstname" required>
                                         </div>
 
                                         <div class="input-group mb-3">
                                           <span class="input-group-text" id="reservationLastname1"><i class="bi bi-person"></i></span>
-                                            <input type="text" class="form-control" placeholder="Lastname" aria-label="Username" aria-describedby="reservationLastname1" name="reservationLastname" id="reservationLastname">
+                                            <input type="text" class="form-control" placeholder="Lastname" aria-label="Username" aria-describedby="reservationLastname1" name="reservationLastname" id="reservationLastname" required>
                                         </div>
 
                                         <div class="input-group mb-3">
                                           <span class="input-group-text" id="reservationEmail1"><i class="bi bi-envelope"></i></span>
-                                            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="reservationEmail1" name="reservationEmail" id="reservationEmail">
+                                            <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="reservationEmail1" name="reservationEmail" id="reservationEmail" required>
                                         </div>
 
                                         <div>
                                             <p class="text-muted mb-0 pb-0">Enter the date you want to use the room</p>
-                                            <input type="date" class="form-control mt-o" id="reservationDate">
+                                            <input type="date" class="form-control mt-o" id="reservationDate" required>
                                         </div>
-                                      </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="dropdown">
+
+                                        <div class="container-fluid d-flex justify-content-end gap-2 mt-3">
+                                            <div class="dropdown">
                                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Additional
                                             </button>
@@ -242,8 +250,14 @@
                                                 <li><a class="dropdown-item" href="#" @click="addTransportationService">Transportation Service <span class="text-primary">700 PHP</span></a></li>
                                             </ul>
                                             </div>
-                                        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" aria-label="Close" @click="reserveNowFunc">Done</button>
+                                        <button type="submit" class="btn btn-primary"  id="reservationDone" data-bs-dismiss="modal" aria-label="Close" @click="reserveNowFunc">Done</button> 
+                                        <!-- data-bs-dismiss="modal" aria-label="Close" -->
+
+                                        </div>
+
+                                      </form>
                                     </div>
+                                        
                                     </div>
                                 </div>
                                 </div>
@@ -261,7 +275,7 @@
                 <!-- ReservationComponent -->
                 <div class="body " v-if="reservationIsClicked" >
                 <ReservationComponent v-if="getUserType !== 'user'"/>
-                <ReservationComponentForUser v-if="getUserType === 'user' && finalCurrentIndexForReservation !== null" :roomType="roomData[finalCurrentIndexForReservation -1].rmName" :roomPrice="roomData[finalCurrentIndexForReservation -1].rmInfo.roomPrice" :roomOccupacy="roomData[finalCurrentIndexForReservation -1].rmInfo.roomOccupacy" :roomCr="roomData[finalCurrentIndexForReservation -1].rmInfo.roomCr" :roomFeatures="roomData[finalCurrentIndexForReservation -1].rmInfo.roomFeatures" :reservationDate="reservationDate"/>
+                <ReservationComponentForUser v-if="getUserType === 'user' && finalCurrentIndexForReservation !== null"  :roomType="roomData[finalCurrentIndexForReservation -1].rmName" :roomPrice="roomData[finalCurrentIndexForReservation -1].rmInfo.roomPrice" :roomOccupacy="roomData[finalCurrentIndexForReservation -1].rmInfo.roomOccupacy" :roomCr="roomData[finalCurrentIndexForReservation -1].rmInfo.roomCr" :roomFeatures="roomData[finalCurrentIndexForReservation -1].rmInfo.roomFeatures" :reservationDate="reservationDate" :reserveNowDataAdditional="reserveNowDataAdditional[0].list"/>
                
                 <!-- alt + z -->
                 <div class="container-fluid text-center mt-5 pt-5" v-if="finalCurrentIndexForReservation === null">
@@ -270,7 +284,7 @@
                 </div>
 
            <div class="body" v-if="profileIsClicked">
-            <MyProfile />
+            <MyProfile :userType="userType"/>
            </div>
 
            <div class="body" v-if="aboutWebsiteIsClicked">
