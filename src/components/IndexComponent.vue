@@ -13,7 +13,7 @@
 
 
   <div class="location"><i class="bi bi-geo-alt fs-5" data-bs-toggle="modal" data-bs-target="#locationModal"></i></div>
-  <div class="profile-at-top container d-flex flex-row align-items-center gap-2" @click="profileAtTopClickFunc"><img src="https://scontent.fmnl4-5.fna.fbcdn.net/v/t39.30808-6/414453944_1484162515493206_1621779082099115105_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEm8Vej4ZDH1smt1RDiZ-u5TFOn2YtwVQBMU6fZi3BVAJwAC34z39fOZEf7G6yDk_iPNzwFxOHtoGA8Tb8eWYW7&_nc_ohc=7e37uClJMXEAX_dRnm7&_nc_ht=scontent.fmnl4-5.fna&oh=00_AfD3AJAiXppT_X-TVoesT0DojgO2d5nrjuqx10HwQUAKtQ&oe=65E1C63B" alt="" class="user-profile"> 
+  <div class="profile-at-top container d-flex flex-row align-items-center gap-2" @click="profileAtTopClickFunc"><img :src="profile" alt="" class="user-profile"> 
 <div class="profile-at-top-name text-muted">{{ currentUsername }}</div>
 </div>
 
@@ -114,15 +114,15 @@
       </div>  
       <div class="body d-flex flex-column"  v-if="!reservationIsClicked && !profileIsClicked && !aboutWebsiteIsClicked && !contactIsClicked">
         <div class="container-lg mt-0 card-container">
-    <div class="row d-flex flex-row gap-3 justify-content-center align-items-center  pt-1">
-        <div class="available-rooms col-lg-3 col-md-3 p-3 text-light rounded text-center ">Available Rooms <br> {{ availableRooms }}</div>
-        <div class="all-users col-lg-3 col-md-3 p-3 text-light rounded text-center">All users <br> 2,000</div>
-        <div class="active-users col-lg-3 col-md-3 p-3 text-light rounded text-center" >Active user <br> {{ activeUser }}</div>
+    <div class="card-container-child d-flex flex-row gap-3 justify-content-center align-items-center  pt-1">
+        <div class="available-rooms p-3 text-light rounded text-center ">Available Rooms <br> {{ availableRooms }}</div>
+        <div class="all-users p-3 text-light rounded text-center">All users <br> 2,000</div>
+        <div class="card active-users p-3 text-light rounded text-center" >Active user <br> {{ activeUser }}</div>
     </div>
 </div>
 
        <div class="container-fluid d-flex justify-content-between mt-5" v-if="userType === 'user'">
-       <div class="text-dark fs-5 fnt-natural">Choose rooms</div>
+       <div class="text-dark fs-5 fnt-natural choose-room-text">Choose rooms</div>
        <div class="text-dark fs-5 fnt-natural room-info-text">Room info</div>
        
        </div>
@@ -200,7 +200,7 @@
         </div>
             <div class="houseGIF-container container d-flex w-100 h-100 flex-column" v-if="roomImage === ''">
                 <img class="houseGif" src="https://media3.giphy.com/media/JbEuH54me0ho96xbmU/source.gif" alt="House GIF">
-                <h5 class="text-muted text-center pt-0 mt-0">Room info will appear here</h5>
+                <h5 class="text-muted text-center pt-0 mt-0 room-will-appear-here">Room info will appear here</h5>
             </div>
 
 
@@ -250,7 +250,7 @@
                                                 <li><a class="dropdown-item" href="#" @click="addTransportationService">Transportation Service <span class="text-primary">700 PHP</span></a></li>
                                             </ul>
                                             </div>
-                                        <button type="submit" class="btn btn-primary"  id="reservationDone" data-bs-dismiss="modal" aria-label="Close" @click="reserveNowFunc">Done</button> 
+                                        <button type="submit" class="btn btn-primary"  id="reservationDone" :data-bs-dismiss="toggleTheModal" aria-label="Close" @click="reserveNowFunc">Done</button> 
                                         <!-- data-bs-dismiss="modal" aria-label="Close" -->
 
                                         </div>
@@ -275,7 +275,7 @@
                 <!-- ReservationComponent -->
                 <div class="body " v-if="reservationIsClicked" >
                 <ReservationComponent v-if="getUserType !== 'user'"/>
-                <ReservationComponentForUser v-if="getUserType === 'user' && finalCurrentIndexForReservation !== null"  :roomType="roomData[finalCurrentIndexForReservation -1].rmName" :roomPrice="roomData[finalCurrentIndexForReservation -1].rmInfo.roomPrice" :roomOccupacy="roomData[finalCurrentIndexForReservation -1].rmInfo.roomOccupacy" :roomCr="roomData[finalCurrentIndexForReservation -1].rmInfo.roomCr" :roomFeatures="roomData[finalCurrentIndexForReservation -1].rmInfo.roomFeatures" :reservationDate="reservationDate" :reserveNowDataAdditional="reserveNowDataAdditional[0].list"/>
+                <ReservationComponentForUser v-if="getUserType === 'user' && finalCurrentIndexForReservation !== null"  :roomType="roomData[finalCurrentIndexForReservation -1].rmName" :roomPrice="roomData[finalCurrentIndexForReservation -1].rmInfo.roomPrice" :roomOccupacy="roomData[finalCurrentIndexForReservation -1].rmInfo.roomOccupacy" :roomCr="roomData[finalCurrentIndexForReservation -1].rmInfo.roomCr" :roomFeatures="roomData[finalCurrentIndexForReservation -1].rmInfo.roomFeatures" :reservationDate="reservationDate" :reserveNowDataAdditional="reserveNowDataAdditional[0].list" @toggleTheReservation="toggleTheReservationFunc"/>
                
                 <!-- alt + z -->
                 <div class="container-fluid text-center mt-5 pt-5" v-if="finalCurrentIndexForReservation === null">

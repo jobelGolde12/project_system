@@ -160,5 +160,42 @@
    .sidenav-body .ul .li{
     cursor: pointer;
    }
-   /*837*/
-   
+   .card-container-child{
+    position: relative;
+    width: 100%;
+   }
+   .card-container-child > div{
+    max-width: 500px;
+    flex: 1;
+    flex-basis: 0;
+   }
+   @media screen and (max-width: 1100px){
+   .room-will-appear-here{
+    top: 30%;
+    position: absolute;
+   }
+   }
+   @media screen and (max-width: 911px){
+     .room-info , .room-info-text {
+        display: none;
+     }
+    .rooms{
+        flex: 1;
+        margin-left: 2rem;
+    }
+    .choose-room-text{
+        margin-left: 2rem;
+    }
+    .card-container-child{
+    overflow-x: scroll;
+    }
+   }
+   @media screen and (max-width: 870px){
+    .sidenav{
+        left: -100%;
+    }
+    .body{
+        left: -20%;
+        width: 100vw;
+    }
+   }

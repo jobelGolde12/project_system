@@ -4,10 +4,10 @@
         <div class="circle-bg2"  v-if="!loadSystem"></div>
         <div class="circle-bg3"  v-if="!loadSystem"></div>
 
-        <div class="signin-card d-flex flex-column">
+        <div class="signin-card d-flex flex-column ">
             <div class="header d-flex flex-row justify-content-between align-items-center mb-2 pt-2 ps-3 pe-3">
-                <div class="logo"><h5 class="fs-5 fw-bold text-dark"><span class="bg-primary text-light m-logo pt-1 p   b-1">M</span> <span class="text-primary">Hotel</span></h5></div>
-                <div class="links"><a href="#">About</a></div>
+                <div class="logo"><h5 class="fs-5 fw-bold text-dark d-flex align-items-center gap-2"><span class="bg-primary text-light m-logo onerem d-block">M</span> <span class="text-primary onerem d-block hotel">Hotel</span></h5></div>
+                <div class="links onerem about"><a href="#">About</a></div>
             </div>
 
             <div class="body  d-flex flex-row gap-2">
@@ -51,7 +51,7 @@
            </div>
 
              <div class="button-container">
-                <button class="btn btn-primary mb-0">
+                <button class="btn btn-primary mb-0 action-btn">
                     <span v-if="!signupIsClicked" data-bs-toggle="modal" data-bs-target="#chooseType">Login</span>
                     <span v-if="signupIsClicked"  @click="signup">Done</span>
                 </button>
@@ -62,7 +62,7 @@
 
 
 
-                <div class="">
+                <div class="footer-content">
                    <p v-if="!signupIsClicked"> Didn't have an account? | <a href="#" @click="signupFunc">Signup</a> </p>
                    <p v-if="signupIsClicked" class="mt-0 pt-0"> Already have an account? | <a href="#" @click="signinFunc">Login</a> </p>
                 </div>
@@ -89,7 +89,7 @@
       </div>
       <div class="modal-body">
         <div class="container-fluid d-flex gap-3 flex-column">
-            <div><button class="btn btn-outline-primary" @click="userLoginFunc">User</button></div>
+            <div><button class="btn btn-outline-secondary" @click="userLoginFunc">User</button></div>
         <div><button class="btn btn-primary" @click="adminLoginFunc">Admin</button></div>
 
         </div>
@@ -263,6 +263,9 @@ background-size: cover;
 .signin-card .body .image:hover{
     transform:scale(1.1);
 }
+.body .content{
+    transform: translateY(-7%);
+}
 .links a{
     text-decoration: none;
     color: var(--clr-secondary);
@@ -354,8 +357,9 @@ background-size: cover;
     background: linear-gradient(to right , blue,#007bff);
 }
 .m-logo{
-    padding: .4rem .5rem;
+    padding: .3rem .5rem;
     border-radius: 50%;
+    font-weight: 300;
 }
 #showPassCheckbox{
     cursor: pointer;
@@ -379,5 +383,86 @@ background-size: cover;
  position: relative;
  width: 100%;
 }
+
+@media screen and (max-width: 984px){
+    .signin-card .body  .image{
+        display: none;
+    }
+    .body{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-content .signin-card{
+        width: 40%;
+    }
+    .welcome-back , .signup{
+        font-size: 1rem;
+        margin-left: .2rem;
+    }
+    .footer-content{
+        margin-top: .8rem;
+    }
+    
+    .onerem{
+        font-size: .8rem;
+    }
+    .action-btn{
+        position: relative;
+        width: 100%;
+    }
+    .show-password-container{
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .body{
+    transform: translateX(20%);
+    position: relative;
+    width: 90%;
+   }
+   .body .content{
+    transform: translateY(3%);
+   }
+
+}
+
+
+
+@media screen and (max-width: 600px){
+    
+    .welcome-back , .signup{
+        font-size: .8rem;
+    }
+    .footer-content{
+        margin-top: .8rem;
+    }
+    .hotel{
+        margin-top: .2rem;
+    }
+    .about{
+        margin-top: -.2rem;
+    }
+    .footer-content p{
+        font-size: .5rem;
+        text-align: center;
+    }
+    .welcome-back , .signup{
+        margin-left: .2rem;
+    }
+    .body .content{
+    transform: translateY(-3%);
+}
+    
+}
+@media screen and (max-width: 644px){
+    .footer-content p{
+        font-size: .7rem;
+        text-align: center;
+    }
+    
+  
+}
+
+
 
 </style>

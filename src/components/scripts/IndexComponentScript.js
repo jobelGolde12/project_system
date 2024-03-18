@@ -1,6 +1,7 @@
 
 import ReservationComponent from '../ReservationComponent.vue'
 import MyProfile from '../MyProfile.vue'
+import profile from '../../assets/profile.jpg'
 import ReservationComponentForUser from '../ReservationComponentForUser.vue'
 import AboutWebsite from '../AboutWebsite.vue'
 import ContactComponent from '../ContactComponent.vue'
@@ -35,8 +36,10 @@ export default{
             hotelName: 'M hotel',
             hotelLocation: '434 L Guerrero Street, Ermita, Manila, Luzon, Philippines',
             reserveNowData: [],
-            reserveNowDataAdditional: [],
-            reservationDate: null
+            reserveNowDataAdditional: [{list : 'No additional'}],
+            reservationDate: null,
+            toggleTheModal: '',
+            profile: profile
         
         }
     },
@@ -348,6 +351,18 @@ export default{
             document.getElementById('reserveNowForm').addEventListener('submit', event =>{
                 event.preventDefault()
             })
+
+
+            // Handle the input required that cannot be empty 
+            if(reservationFirstname !== '' && reservationLastname !== '' && reservationEmail !== '' && resDate !== ''){
+                this.toggleTheModal = 'modal'
+
+            }
+
+            reservationFirstname = ''
+            reservationLastname = ''
+            reservationEmail = ''
+            resDate = ''
         },
         addFood(){
             this.reserveNowDataAdditional.push({list: 'Food', price: 500})
@@ -369,6 +384,9 @@ export default{
             this.aboutWebsiteIsClicked = false
             this.notificationIsClicked =false
 
+        },
+        toggleTheReservationFunc(){
+            this.finalCurrentIndexForReservation = null
         }
     },
     mounted(){

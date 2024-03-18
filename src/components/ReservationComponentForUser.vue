@@ -37,7 +37,8 @@
                                       <p class="text-muted">Room cr: {{ roomCr }}</p>
                                       <p class="text-muted">Room features: {{ roomFeatures }}</p>
                                       <p class="text-muted">Date: {{ reservationDate }}</p>
-                                      <p class="text-muted">Additional: {{ reserveNowDataAdditional }}</p>
+                                      <p class="text-muted" v-if="reserveNowDataAdditional !== 'No additional'">Additional: {{ reserveNowDataAdditional }}</p>
+                                      <p class="text-muted" v-if="reserveNowDataAdditional === 'No additional'">Additional: No additional</p>
 
                                     </div>
                                     <div class="modal-footer">
@@ -65,8 +66,7 @@
                                 <div class="modal-body">
                                     
                                     <p class="text-muted">Why do you want to cancel the reservation?</p>
-                                    <textarea name="cancelReservationTextArea" id="cancelReservationTextArea" cols="30" rows="10" class="form-control"></textarea>
-
+                                    <textarea name="cancelReservationTextArea" id="cancelReservationTextArea" cols="30" rows="10" class="form-control" v-model="cancelReservation" required></textarea>
                                     <div class="container mt-4">
                                         <div class="dropdown">
                                             <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -105,7 +105,7 @@
                                     <h5 class="text-muted">Room reservation has been cancelled, the information you entered will send to the admin</h5>
                                   </div>
                                     <div class="modal-footer d-flex justify-content-end">
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="cancelReservationDone">Done</button>
+                                    <button type="button" class="btn btn-primary" :data-bs-dismiss="handleCancelTheReservation"  @click="cancelReservationDone">Done</button>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +138,10 @@ export default{
     name: 'ReservationComponentForUser',
     data(){
         return{
-            reservationData: []
+            reservationData: [],
+            toggleReservation: false,
+            cancelReservation: '',
+            handleCancelTheReservation: ''
            
         }
     },
@@ -149,12 +152,24 @@ export default{
         if(this.roooBed !== null){
             this.reservationData.push({rmType: this.roomType, rmPrice: this.roomPrice, rmOccupacy: this.roomOccupacy})
         } 
+
      
     },
 
     cancelReservationDone(){
         this.reservationData = []
+        this.toggleReservation = true
+        this.$emit('toggleTheReservation',this.toggleReservation)
+
+        let cancelReservationTextArea = document.getElementById('cancelReservationTextArea').value
+
+        if(this.cancelReservationTextArea !== ''){
+            this.handleCancelTheReservation = 'modal'
+        }
+        console.log(cancelReservationTextArea)
+
     }
+
     },
     mounted(){
         this.getTheReservationData()
